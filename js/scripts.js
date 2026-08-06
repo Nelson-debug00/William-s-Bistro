@@ -83,6 +83,51 @@
 
     window.addEventListener('scroll', updateActiveLink, { passive: true });
 
+    /* ---------- 3b. Smooth Scroll + URL limpia para anclas ---------- */
+    // Evita que quede "/#seccion" en la URL al navegar a una ancla de la
+    // misma página: hace scroll suave y limpia el hash con history.replaceState.
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+    function scrollToHash(hash) {
+        const target = document.getElementById(hash);
+        if (!target) return false;
+        const offset = 90; // compensa la navbar fija
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+        return true;
+    }
+
+    anchorLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            const hash = link.getAttribute('href').replace('#', '');
+            if (!hash) return; // enlace solo "#" -> no hacer nada
+
+            // Si la página actual NO tiene el elemento, es un link a otra
+            // página (ej. menu.html) -> dejar el comportamiento nativo.
+            if (!document.getElementById(hash)) return;
+
+            e.preventDefault();
+
+            if (scrollToHash(hash)) {
+                // Limpia el "#hash" de la URL sin recargar ni dejar historial
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        });
+    });
+
+    // Si se llegó con "#hash" en la URL (ej. recarga con ancla), al hacer
+    // scroll se limpia también. Se dispara una vez, con scroll suave.
+    window.addEventListener('load', function () {
+        if (window.location.hash) {
+            const hash = window.location.hash.replace('#', '');
+            setTimeout(function () {
+                if (scrollToHash(hash)) {
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+            }, 300);
+        }
+    });
+
     /* ---------- 4. Current Year in Footer ---------- */
     const yearEl = document.getElementById('currentYear');
     if (yearEl) {
