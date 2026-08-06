@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Desayunos gourmet, sándwiches artesanales y jugos naturales en Maturín. Preparados al momento, desde $5.50. Pide por WhatsApp.">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="./assets/favicon-64.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon-180.png">
+    <title>William's Bistro</title>
+    <!-- Preloads -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="assets/barra2_blur.jpg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- AOS CSS cargado de forma no bloqueante -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" media="print" onload="this.media='all'">
+</head>
+<body>
+
+    <!-- ======================= NAVBAR ======================= -->
+    <header class="navbar" id="navbar">
+        <div class="navbar__container">
+            <a href="index.html" class="navbar__logo">
+                <img src="./assets/logo_sin_fondo.png" alt="Logo de William's Bistro" class="navbar__logo-icon">
+                <span class="navbar__logo-text">William's Bistro</span>
+            </a>
+
+            <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="navbar__links" id="navLinks">
+                <a href="#hero" class="navbar__link">Inicio</a>
+                <a href="menu.html" class="navbar__link">Menú</a>
+                <a href="#ubicacion" class="navbar__link">Ubicación</a>
+                <a href="#contacto" class="navbar__link navbar__link--cta">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ======================= HERO ======================= -->
+    <section class="hero" id="hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">Déjate conquistar por el sabor</h1>
+            <div class="hero__divider"></div>
+            <p class="hero__subtitle">
+                Platos exquisitos y especialidades preparadas al momento, diseñadas para ofrecer una experiencia gastronómica de alto nivel en el corazón de Maturín.
+            </p>
+            <div class="hero__actions">
+                <a href="https://wa.me/584127235800?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20William%27s%20Bistro" target="_blank" rel="noopener" class="btn btn--primary">🍔 PIDE POR WHATSAPP</a>
+                <a href="menu.html" class="btn btn--outline">VER MENÚ Y PRECIOS</a>
+            </div>
+            <p class="hero__micro">Abierto 7:00 am – 10:00 pm</p>
+        </div>
+        <div class="hero__scroll" aria-hidden="true">
+            <span class="hero__scroll-text">Desliza</span>
+            <span class="hero__scroll-line"></span>
+        </div>
+    </section>
+
+    <!-- ======================= PRESENTACIÓN ======================= -->
+    <section class="about" id="about">
+        <div class="about__container">
+            <div class="about__image" data-aos="fade-right">
+                <div class="about__image-frame">
+                    <img src="./assets/img_presentacion2.jpg" alt="Clientes de William's Bistro" loading="lazy" width="600" height="400">
+                </div>
+            </div>
+            <div class="about__text" data-aos="fade-left">
+                <span class="about__tag">Nuestra Esencia</span>
+                <h2 class="about__title">Donde el Apetito Encuentra la Calidad</h2>
+                <p class="about__paragraph">
+                    En William's Bistro nos dedicamos a ofrecer una experiencia culinaria excepcional en Maturín. Cada plato es una obra de arte, preparada al momento con ingredientes rigurosamente seleccionados para garantizar la máxima frescura y calidad en nuestra carta.
+                </p>
+                <p class="about__paragraph">
+                    Desde sándwiches gourmet y almuerzos completos hasta refrescantes jugos naturales, nuestro menú interactivo digital está pensado para deleitar tu paladar con sabores extraordinarios en un ambiente sofisticado y acogedor.
+                </p>
+                <div class="about__features">
+                    <div class="about__feature">
+                        <span class="about__feature-icon">★</span>
+                        <p>Ingredientes<br>de primera</p>
+                    </div>
+                    <div class="about__feature">
+                        <span class="about__feature-icon">⏱</span>
+                        <p>Servicio<br>ágil y rápido</p>
+                    </div>
+                    <div class="about__feature">
+                        <span class="about__feature-icon">♥</span>
+                        <p>Hecho con<br>pasión</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= PLATOS DESTACADOS ======================= -->
+    <section class="specialties" id="especialidades">
+        <div class="specialties__header">
+            <span class="specialties__tag">El Mostrador Virtual</span>
+            <h2 class="specialties__title">Nuestras Especialidades</h2>
+            <p class="specialties__subtitle">Tres razones para visitarnos hoy. Cada una preparada con dedicación y el mejor de los ingredientes.</p>
+        </div>
+
+        <div class="specialties__grid">
+
+            <article class="card" data-aos="fade-up">
+                <div class="card__image">
+                    <img src="https://images.unsplash.com/photo-1655279562015-047c3da9a271?q=80&w=766&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sándwich gourmet de William's Bistro" loading="lazy" width="380" height="250">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Sándwich Gourmet</h3>
+                    <p class="card__desc">
+                        Pan artesanal tostado, pechuga de pollo a la parrilla, queso fundido, aguacate, tomate fresco y aderezo de la casa en una combinación que redefine el sándwich.
+                    </p>
+                    <a href="menu.html" class="card__link">Explorar en el Menú <span>&rarr;</span></a>
+                </div>
+            </article>
+
+            <article class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card__image">
+                    <img src="./assets/jugos.jpg" alt="Jugos naturales coloridos de William's Bistro" loading="lazy" width="380" height="250">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Jugos Naturales</h3>
+                    <p class="card__desc">
+                        Frutas frescas exprimidas al momento. Naranja, mango, papaya, fresa y sandía listas para refrescar tu día. Sin azúcar añadida, solo el sabor natural de la fruta.
+                    </p>
+                    <a href="menu.html" class="card__link">Explorar en el Menú <span>&rarr;</span></a>
+                </div>
+            </article>
+
+            <article class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card__image">
+                    <img src="https://plus.unsplash.com/premium_photo-1695203199911-cef047a9c5fb?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Plato de desayuno completo de William's Bistro" loading="lazy" width="380" height="250">
+                </div>
+                <div class="card__body">
+                    <h3 class="card__title">Desayuno Completo</h3>
+                    <p class="card__desc">
+                        La combinación perfecta para empezar el día: huevos a tu gusto, pan tostado, queso, jamón, lonjas de queso de mano y café recién hecho. Energía para toda la mañana.
+                    </p>
+                    <a href="menu.html" class="card__link">Explorar en el Menú <span>&rarr;</span></a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ======================= UBICACIÓN Y CONTACTO ======================= -->
+    <section class="location" id="ubicacion">
+        <div class="location__container">
+            <div class="location__map" data-aos="zoom-in">
+                <iframe
+                    src="https://www.google.com/maps?q=Williams%20Bistro%2C%20Calle%2021%2C%20Matur%C3%ADn%206201%2C%20Monagas&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="border:0; filter:invert(0.9) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa de ubicación de William's Bistro en Maturín, Monagas, Venezuela">
+                </iframe>
+            </div>
+
+            <div class="location__info" id="contacto" data-aos="fade-left">
+                <span class="location__tag">Visítanos</span>
+                <h2 class="location__title">Encuéntranos en Maturín</h2>
+
+                <ul class="location__list">
+                    <li class="location__item">
+                        <span class="location__item-icon">📍</span>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Calle Bombona, al lado de la casa de las togas</p>
+                        </div>
+                    </li>
+                    <li class="location__item">
+                        <span class="location__item-icon">🕒</span>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>
+                                Lunes a Domigos: 7:00 am – 10:00 pm
+                            </p>
+                        </div>
+                    </li>
+                    <li class="location__item">
+                        <span class="location__item-icon">📞</span>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p><a href="https://wa.me/584127235800?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20William%27s%20Bistro" target="_blank" rel="noopener" class="location__phone">+58 412-723-5800</a></p>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Williams%20Bistro%2C%20Calle%2021%2C%20Matur%C3%ADn%206201%2C%20Monagas" target="_blank" rel="noopener" class="btn btn--primary">
+                    Cómo Llegar
+                </a>
+            </div>
+
+            <!-- ======================= INSTAGRAM CARD ======================= -->
+            <div class="location__instagram" data-aos="fade-left" data-aos-delay="100">
+                <span class="location__tag">Comunidad</span>
+                <h2 class="location__title">Síguenos</h2>
+                <p class="location__insta-handle">
+                    <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener">@williamsbistro_vzla</a>
+                </p>
+                <div class="location__insta-grid">
+                    <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener" class="location__insta-post">
+                        <img src="./assets/img_presentacion.jpg" alt="Instagram Post 1" loading="lazy" width="150" height="150">
+                    </a>
+                    <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener" class="location__insta-post">
+                        <img src="./assets/postre2.jpg" alt="Instagram Post 2" loading="lazy" width="150" height="150">
+                    </a>
+                    <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener" class="location__insta-post">
+                        <img src="./assets/barra3.jpg" alt="Instagram Post 3" loading="lazy" width="150" height="150">
+                    </a>
+                    <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener" class="location__insta-post">
+                        <img src="./assets/familia.jpg" alt="Instagram Post 4" loading="lazy" width="150" height="150">
+                    </a>
+                </div>
+                <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener" class="btn btn--primary btn--instagram">
+                    Visitar Perfil
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="footer" id="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <a href="index.html" class="footer__logo">
+                    <img src="./assets/logo_sin_fondo.png" alt="Logo de William's Bistro" class="footer__logo-icon" loading="lazy" width="40" height="40">
+                    <span class="footer__logo-text">William's Bistro</span>
+                </a>
+                <p class="footer__tagline">Sabor Premium en Cada Bocado</p>
+            </div>
+
+            <div class="footer__links">
+                <h4>Enlaces Rápidos</h4>
+                <a href="#hero">Inicio</a>
+                <a href="menu.html">Menú</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+
+            <div class="footer__social">
+                <h4>Redes Sociales</h4>
+                <div class="footer__social-icons">
+                    <a href="https://www.instagram.com/williamsbistro_vzla" target="_blank" rel="noopener" class="footer__social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.012 3.584-.069 4.849c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.645.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.645-.07-4.849 0-3.204.012-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.332.014 7.052.072 2.695.272.273 2.691.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                        </svg>
+                        <span>@williamsbistro_vzla</span>
+                    </a>
+                    <a href="https://wa.me/584127235800?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20William%27s%20Bistro" target="_blank" rel="noopener" class="footer__social-icon" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.25 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.733-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 2.022 14.1 1.002 11.99 1.002c-5.437 0-9.862 4.369-9.866 9.8.002 2.073.546 4.099 1.582 5.892l-.178.291-1.048 3.83 3.925-1.017.282.164zm11.536-5.834c-.313-.155-1.853-.903-2.143-1.008-.29-.106-.5-.157-.712.157-.211.314-.818 1.008-1.003 1.218-.186.21-.37.235-.683.079-.313-.157-1.32-.482-2.515-1.537-.93-.822-1.556-1.838-1.738-2.15-.183-.313-.02-.482.137-.638.14-.14.313-.365.47-.549.155-.183.208-.314.31-.523.104-.21.053-.393-.027-.55-.078-.157-.712-1.701-.976-2.336-.257-.618-.518-.534-.712-.544-.184-.01-.396-.01-.607-.01-.211 0-.555.08-.846.393-.29.314-1.11 1.074-1.11 2.616 0 1.542 1.136 3.033 1.293 3.242.159.21 2.235 3.376 5.414 4.73 1.213.518 2.158.825 2.894 1.056.744.234 1.422.2 1.957.12.597-.089 1.853-.749 2.118-1.474.264-.725.264-1.348.185-1.474-.08-.125-.29-.21-.603-.364z"/>
+                        </svg>
+                        <span>+58 412-723-5800</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p class="footer__copy">&copy; <span id="currentYear"></span> William's Bistro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/584127235800?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20William%27s%20Bistro" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Pedir por WhatsApp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.25 8.477 3.517 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.733-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 2.022 14.1 1.002 11.99 1.002c-5.437 0-9.862 4.369-9.866 9.8.002 2.073.546 4.099 1.582 5.892l-.178.291-1.048 3.83 3.925-1.017.282.164zm11.536-5.834c-.313-.155-1.853-.903-2.143-1.008-.29-.106-.5-.157-.712.157-.211.314-.818 1.008-1.003 1.218-.186.21-.37.235-.683.079-.313-.157-1.32-.482-2.515-1.537-.93-.822-1.556-1.838-1.738-2.15-.183-.313-.02-.482.137-.638.14-.14.313-.365.47-.549.155-.183.208-.314.31-.523.104-.21.053-.393-.027-.55-.078-.157-.712-1.701-.976-2.336-.257-.618-.518-.534-.712-.544-.184-.01-.396-.01-.607-.01-.211 0-.555.08-.846.393-.29.314-1.11 1.074-1.11 2.616 0 1.542 1.136 3.033 1.293 3.242.159.21 2.235 3.376 5.414 4.73 1.213.518 2.158.825 2.894 1.056.744.234 1.422.2 1.957.12.597-.089 1.853-.749 2.118-1.474.264-.725.264-1.348.185-1.474-.08-.125-.29-.21-.603-.364z"/>
+        </svg>
+    </a>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+</body>
+</html>

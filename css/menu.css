@@ -1,0 +1,376 @@
+/* =================================================================
+   MENU PAGE STYLES
+   ================================================================= */
+
+/* ---------- Menu Hero ---------- */
+.menu-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #19120b 0%, #281d11 45%, #19120b 100%);
+    margin-top: 70px;
+}
+
+.menu-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(closest-side at 78% 20%, rgba(212, 175, 55, 0.2), transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.menu-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(25,18,11,0.45) 0%, var(--bg-primary) 100%);
+    z-index: 1;
+}
+
+.menu-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 0 1.5rem;
+    animation: heroFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.menu-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--gold);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    margin: 1rem 0;
+    line-height: 1.1;
+}
+
+.menu-hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-white);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* ---------- Menu Filters ---------- */
+.menu-filters {
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.5rem 1rem;
+    background: rgba(25, 18, 11, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gold-border);
+}
+
+.menu-filters__btn {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 50px;
+    padding: 0.5rem 1.4rem;
+    cursor: pointer;
+    transition: all var(--t-base);
+}
+
+.menu-filters__btn:hover {
+    color: var(--gold);
+    border-color: var(--gold-border);
+    background: var(--gold-soft);
+}
+
+.menu-filters__btn.active {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+    color: var(--bg-primary);
+    border-color: transparent;
+    box-shadow: var(--shadow-gold);
+    font-weight: 600;
+}
+
+/* ---------- Menu Sections ---------- */
+.menu-section {
+    padding: 5rem 1.5rem;
+    background: var(--bg-primary);
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
+}
+
+.menu-section--alt {
+    background: var(--bg-secondary);
+}
+
+.menu-section.hidden {
+    display: none;
+}
+
+.menu-section__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3.5rem;
+}
+
+.menu-section__title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-section__title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0.8rem auto 0;
+}
+
+.menu-section__desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.menu-section__grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.menu-section__grid--beverages {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+}
+
+/* ---------- Dish Card ---------- */
+.dish {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(243, 234, 214, 0.06);
+    overflow: hidden;
+    transition: all var(--t-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.dish:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold-border);
+    box-shadow: var(--shadow-gold), var(--shadow-md);
+    background: var(--bg-card-hover);
+}
+
+.dish__image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.dish__image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(25, 18, 11, 0.85) 100%);
+    z-index: 1;
+}
+
+.dish__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--t-slow);
+}
+
+.dish:hover .dish__image img {
+    transform: scale(1.1);
+}
+
+.dish__body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.dish__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.25);
+}
+
+.dish__name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--text-white);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.dish__price {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dish__desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Beverage-style list item (no image) */
+.dish--beverage {
+    background: var(--bg-card);
+    border: 1px solid rgba(243, 234, 214, 0.06);
+    border-left: 3px solid var(--gold-border);
+    border-radius: var(--radius-sm);
+}
+
+.dish--beverage:hover {
+    border-left-color: var(--gold);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+    background: var(--bg-card-hover);
+}
+
+.dish--beverage .dish__body {
+    padding: 1.3rem 1.5rem;
+}
+
+.dish--beverage .dish__head {
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.2);
+}
+
+/* ---------- Menu CTA ---------- */
+.menu-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--gold-border);
+}
+
+.menu-cta__content {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-cta__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 380px) {
+    .menu-cta__actions .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+.menu-cta__title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--gold);
+}
+
+.menu-cta__text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.menu-cta__back {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: color var(--t-fast);
+}
+
+.menu-cta__back:hover {
+    color: var(--gold);
+}
+
+/* =================================================================
+   RESPONSIVE
+   ================================================================= */
+@media (max-width: 1024px) {
+    .menu-section__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-hero {
+        min-height: 45vh;
+        background-attachment: scroll;
+    }
+
+    .menu-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .menu-section__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .menu-section__grid--beverages {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .menu-filters {
+        top: 64px;
+        gap: 0.5rem;
+    }
+
+    .menu-filters__btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-section__grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .dish__image {
+        height: 220px;
+    }
+
+    .menu-filters__btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.9rem;
+    }
+}
