@@ -750,6 +750,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--bg-primary);
     content-visibility: auto;
     contain-intrinsic-size: 1px 800px;
+    scroll-margin-top: 80px;
 }
 
 .location__container {

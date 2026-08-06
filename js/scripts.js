@@ -91,7 +91,16 @@
     function scrollToHash(hash) {
         const target = document.getElementById(hash);
         if (!target) return false;
-        const offset = 90; // compensa la navbar fija
+        // Offset robusto: usa el scroll-margin-top del elemento si está
+        // disponible (CSS), si no usa la altura de la navbar + aire.
+        // content-visibility:auto puede dejar scrollMarginTop en 0px aunque
+        // esté definido en CSS -> por eso se calcula la navbar como respaldo.
+        const margin = parseInt(getComputedStyle(target).scrollMarginTop, 10);
+        const navbar = document.getElementById('navbar');
+        const navbarH = navbar ? navbar.offsetHeight : 0;
+        const offset = (Number.isFinite(margin) && margin > 0)
+            ? margin
+            : Math.max(navbarH + 20, 90);
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
         return true;
