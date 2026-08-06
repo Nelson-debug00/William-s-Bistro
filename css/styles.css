@@ -350,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background-image: url('../assets/barra2_blur.jpg');
+    background-image: url('../assets/barra2_blur.webp');
     background-size: cover;
     background-position: center 5%;
 }
