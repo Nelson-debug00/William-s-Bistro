@@ -73,10 +73,15 @@
         });
 
         navLinkEls.forEach(function (link) {
-            link.classList.remove('active-link');
             const href = link.getAttribute('href');
-            if (href && href.includes('#') && href.includes(current)) {
+            // Scroll-spy SOLO para enlaces de anclas de la misma página (#seccion).
+            // Los enlaces a otras páginas (index.html, menu.html, index.html#...) no
+            // se tocan: conservan su estado estático (ej. "Menú" activo en menu.html).
+            if (!href || !href.startsWith('#')) return;
+            if (current && href.includes(current)) {
                 link.classList.add('active-link');
+            } else {
+                link.classList.remove('active-link');
             }
         });
     }

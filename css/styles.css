@@ -60,7 +60,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     -webkit-text-size-adjust: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body {
@@ -68,7 +68,7 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-light);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -353,6 +353,7 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../assets/barra2_blur.webp');
     background-size: cover;
     background-position: center 5%;
+    padding: 120px 1.5rem 120px;
 }
 
 .hero::before {
@@ -1172,8 +1173,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .about__features {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 1.2rem;
-        justify-content: center;
+        text-align: left;
     }
 
     .specialties__grid {
@@ -1277,3 +1281,23 @@ h1, h2, h3, h4, h5, h6 {
         height: 54px;
     }
 }
+
+/* =================================================================
+   RESPONSIVE — Low Height Viewports (e.g. Laptops at 100% zoom)
+   ================================================================= */
+@media (max-height: 780px) and (min-width: 641px) {
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .hero__divider {
+        margin: 18px auto;
+    }
+    .hero__subtitle {
+        margin-bottom: 24px;
+    }
+    .hero__scroll {
+        display: none; /* Ocultar indicador de scroll en viewports bajos para evitar colisiones */
+    }
+}
+
