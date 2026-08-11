@@ -163,25 +163,27 @@
 /* ---------- Dish Card ---------- */
 .dish {
     background: var(--bg-card);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(243, 234, 214, 0.06);
+    border-radius: 6px;
+    border: 1px solid rgba(212, 175, 55, 0.18);
     overflow: hidden;
     transition: all var(--t-base);
     display: flex;
     flex-direction: column;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+    padding: 0.9rem;
 }
 
 .dish:hover {
     transform: translateY(-8px);
-    border-color: var(--gold-border);
-    box-shadow: var(--shadow-gold), var(--shadow-md);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 8px 30px rgba(212, 175, 55, 0.12);
     background: var(--bg-card-hover);
 }
 
 .dish__image {
     position: relative;
     overflow: hidden;
-    height: 200px;
+    height: 170px;
 }
 
 .dish__image::after {
@@ -204,7 +206,7 @@
 }
 
 .dish__body {
-    padding: 1.5rem;
+    padding: 1.15rem 0.3rem 0.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -215,14 +217,14 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 0.8rem;
-    margin-bottom: 0.6rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px dotted rgba(212, 175, 55, 0.25);
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .dish__name {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--text-white);
     font-weight: 600;
     line-height: 1.3;
@@ -230,7 +232,7 @@
 
 .dish__price {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: var(--gold);
     font-weight: 500;
     letter-spacing: 0.04em;
@@ -239,7 +241,7 @@
 
 .dish__desc {
     color: var(--text-muted);
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     line-height: 1.6;
     flex-grow: 1;
 }
@@ -250,6 +252,8 @@
     border: 1px solid rgba(243, 234, 214, 0.06);
     border-left: 3px solid var(--gold-border);
     border-radius: var(--radius-sm);
+    box-shadow: none;
+    padding: 0;
 }
 
 .dish--beverage:hover {
@@ -368,6 +372,10 @@
 
     .dish__image {
         height: 220px;
+    }
+
+    .dish__body {
+        padding: 1.15rem 0.3rem 0.5rem;
     }
 
     .menu-filters__btn {
