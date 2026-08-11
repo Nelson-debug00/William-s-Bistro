@@ -578,6 +578,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.3rem;
     flex-shrink: 0;
     transition: all var(--t-base);
+    cursor: pointer;
 }
 
 .about__feature:hover .about__feature-icon {
