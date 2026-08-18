@@ -156,7 +156,7 @@
                 easing: 'ease-out-cubic',
                 once: true,
                 offset: 80,
-                disable: window.innerWidth < 480 ? false : false
+                disable: false
             });
         });
     }
@@ -167,5 +167,47 @@
             img.setAttribute('loading', 'lazy');
         });
     }
+
+    /* ---------- 7. Live Open / Closed Indicator ---------- */
+    // Horario: Lunes a Domingo 7:00 am – 10:00 pm (hora local del visitante).
+    // El indicador se actualiza al cargar y luego cada minuto, de modo que
+    // cruza exactamente a abierto/cerrado en el minuto justo.
+    var OPEN_HOUR = 7;   // 7:00 am
+    var CLOSE_HOUR = 22; // 10:00 pm (22:00)
+
+    function isRestaurantOpen() {
+        var now = new Date();
+        var h = now.getHours();
+        // Abierto desde las 07:00 hasta las 22:00 (la hora 22 = 10pm, cierra)
+        return h >= OPEN_HOUR && h < CLOSE_HOUR;
+    }
+
+    function setStatusText(el, open) {
+        var dot = el.querySelector('.status-dot');
+        var text = el.querySelector('.status-text');
+        if (!dot || !text) return;
+        if (open) {
+            el.classList.remove('closed');
+            el.classList.add('open');
+            dot.style.background = '#25D366';
+            text.textContent = 'Abierto';
+        } else {
+            el.classList.remove('open');
+            el.classList.add('closed');
+            dot.style.background = '#EF5350';
+            text.textContent = 'Cerrado';
+        }
+    }
+
+    function updateStatusIndicators() {
+        var open = isRestaurantOpen();
+        document.querySelectorAll('.status-indicator').forEach(function (el) {
+            setStatusText(el, open);
+        });
+    }
+
+    // Check ahora y luego cada minuto (60s) para capturar el cruce exacto.
+    updateStatusIndicators();
+    setInterval(updateStatusIndicators, 60 * 1000);
 
 })();

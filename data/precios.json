@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "updated": "2026-08-16",
+    "currency_base": "USD",
+    "bs_rate": 771.07,
+    "source": "BCV - Dólar Oficial (ve.dolarapi.com)",
+    "note": "La tasa BCV (bs_rate) es el valor fallback inicial. El JS cliente (js/precios.js) refresca esta tasa cada 12h vía API pública y actualiza localStorage['bcv_fresh'] de forma automática."
+  },
+  "items": [
+    { "id": "desayuno_continental", "nombre": "Desayuno Continental", "precio_usd": 5.50, "categoria": "desayunos" },
+    { "id": "desayuno_ejecutivo", "nombre": "Desayuno Ejecutivo", "precio_usd": 7.00, "categoria": "desayunos" },
+    { "id": "desayuno_veggie", "nombre": "Desayuno Veggie", "precio_usd": 6.00, "categoria": "desayunos" },
+    { "id": "desayuno_campesino", "nombre": "Desayuno Campesino", "precio_usd": 6.50, "categoria": "desayunos" },
+    { "id": "sandwich_supremo", "nombre": "Sándwich Supremo", "precio_usd": 8.00, "categoria": "sandwiches" },
+    { "id": "sandwich_club", "nombre": "Sándwich Club", "precio_usd": 7.50, "categoria": "sandwiches" },
+    { "id": "sandwich_vegetariano", "nombre": "Sándwich Vegetariano", "precio_usd": 6.50, "categoria": "sandwiches" },
+    { "id": "sandwich_res", "nombre": "Sándwich de Res", "precio_usd": 9.00, "categoria": "sandwiches" },
+    { "id": "jugo_naranja", "nombre": "Jugo de Naranja", "precio_usd": 2.50, "categoria": "jugos" },
+    { "id": "jugo_mango", "nombre": "Jugo de Mango", "precio_usd": 3.00, "categoria": "jugos" },
+    { "id": "jugo_papaya", "nombre": "Jugo de Papaya", "precio_usd": 3.00, "categoria": "jugos" },
+    { "id": "jugo_fresa", "nombre": "Jugo de Fresa", "precio_usd": 3.50, "categoria": "jugos" },
+    { "id": "jugo_mixto", "nombre": "Jugo Mixto", "precio_usd": 4.00, "categoria": "jugos" },
+    { "id": "cafe_americano", "nombre": "Café Americano", "precio_usd": 1.50, "categoria": "jugos" },
+    { "id": "tocino_crujiente", "nombre": "Tocino Crujiente", "precio_usd": 2.00, "categoria": "extras" },
+    { "id": "queso_gratinado", "nombre": "Queso Gratinado", "precio_usd": 1.50, "categoria": "extras" },
+    { "id": "aguacate", "nombre": "Aguacate", "precio_usd": 2.00, "categoria": "extras" },
+    { "id": "porcion_papas", "nombre": "Porción de Papas", "precio_usd": 3.00, "categoria": "extras" }
+  ]
+}
