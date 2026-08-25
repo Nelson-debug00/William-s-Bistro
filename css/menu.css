@@ -296,6 +296,31 @@
     border-bottom: 1px dotted rgba(212, 175, 55, 0.2);
 }
 
+/* Extra-style list item (no image) — for sides & acompañamientos */
+.dish--extra {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    border-left: 3px solid var(--gold-soft);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    padding: 0;
+}
+
+.dish--extra:hover {
+    border-left-color: var(--gold-bright);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+    background: var(--bg-card-hover);
+}
+
+.dish--extra .dish__body {
+    padding: 1.3rem 1.5rem;
+}
+
+.dish--extra .dish__head {
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.15);
+}
+
 /* ---------- Menu CTA ---------- */
 .menu-cta {
     padding: 5rem 1.5rem;
