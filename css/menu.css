@@ -286,13 +286,8 @@
     opacity: 0.85;
 }
 
-/* En pantallas muy estrechas, mantener los Bs visibles pero más compactos */
+/* En móviles, mantener los precios en Bs visibles y debajo del USD (como en desktop) */
 @media (max-width: 480px) {
-    .dish__price {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 0.5rem;
-    }
     .dish__price-bs {
         font-size: 0.7rem;
     }
