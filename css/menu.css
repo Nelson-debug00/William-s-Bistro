@@ -102,6 +102,35 @@
     font-weight: 600;
 }
 
+/* Contador de platos por categoría en los filtros */
+.menu-filters__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    margin-left: 0.4rem;
+    padding: 0 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all var(--t-fast);
+}
+
+.menu-filters__btn:hover .menu-filters__count {
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.menu-filters__btn.active .menu-filters__count {
+    background: var(--bg-primary);
+    color: var(--gold);
+}
+
 /* ---------- Menu Sections ---------- */
 .menu-section {
     padding: 5rem 1.5rem;
