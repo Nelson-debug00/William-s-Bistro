@@ -286,10 +286,15 @@
     opacity: 0.85;
 }
 
-/* Ocultar Bs en pantallas muy estrechas (ahorro de ancho) */
+/* En pantallas muy estrechas, mantener los Bs visibles pero más compactos */
 @media (max-width: 480px) {
+    .dish__price {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.5rem;
+    }
     .dish__price-bs {
-        display: none;
+        font-size: 0.7rem;
     }
 }
 
