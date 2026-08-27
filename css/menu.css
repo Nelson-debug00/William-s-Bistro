@@ -102,6 +102,35 @@
     font-weight: 600;
 }
 
+/* Contador de platos por categoría en los filtros */
+.menu-filters__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    margin-left: 0.4rem;
+    padding: 0 0.4rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all var(--t-fast);
+}
+
+.menu-filters__btn:hover .menu-filters__count {
+    color: var(--gold);
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.menu-filters__btn.active .menu-filters__count {
+    background: var(--bg-primary);
+    color: var(--gold);
+}
+
 /* ---------- Menu Sections ---------- */
 .menu-section {
     padding: 5rem 1.5rem;
@@ -257,10 +286,10 @@
     opacity: 0.85;
 }
 
-/* Ocultar Bs en pantallas muy estrechas (ahorro de ancho) */
+/* En móviles, mantener los precios en Bs visibles y debajo del USD (como en desktop) */
 @media (max-width: 480px) {
     .dish__price-bs {
-        display: none;
+        font-size: 0.7rem;
     }
 }
 
@@ -294,6 +323,31 @@
 
 .dish--beverage .dish__head {
     border-bottom: 1px dotted rgba(212, 175, 55, 0.2);
+}
+
+/* Extra-style list item (no image) — for sides & acompañamientos */
+.dish--extra {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    border-left: 3px solid var(--gold-soft);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    padding: 0;
+}
+
+.dish--extra:hover {
+    border-left-color: var(--gold-bright);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+    background: var(--bg-card-hover);
+}
+
+.dish--extra .dish__body {
+    padding: 1.3rem 1.5rem;
+}
+
+.dish--extra .dish__head {
+    border-bottom: 1px dotted rgba(212, 175, 55, 0.15);
 }
 
 /* ---------- Menu CTA ---------- */

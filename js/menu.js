@@ -5,10 +5,34 @@
 (function () {
     'use strict';
 
-    /* ---------- 1. Category Filter ---------- */
+    /* ---------- Category Filter ---------- */
     const filterButtons = document.querySelectorAll('.menu-filters__btn');
     const menuSections = document.querySelectorAll('.menu-section');
     const allDishes = document.querySelectorAll('.dish');
+
+    /* Contar platos por categoría y actualizar los badges de los filtros */
+    function countDishesByCategory() {
+        const counts = { all: 0, desayunos: 0, sandwiches: 0, jugos: 0, extras: 0 };
+        allDishes.forEach(function (dish) {
+            const cat = dish.getAttribute('data-category');
+            if (cat && counts.hasOwnProperty(cat)) {
+                counts[cat] += 1;
+                counts.all += 1;
+            }
+        });
+        return counts;
+    }
+
+    function updateFilterCounts() {
+        const counts = countDishesByCategory();
+        filterButtons.forEach(function (btn) {
+            const filter = btn.getAttribute('data-filter');
+            const countSpan = btn.querySelector('.menu-filters__count');
+            if (countSpan && counts.hasOwnProperty(filter)) {
+                countSpan.textContent = counts[filter];
+            }
+        });
+    }
 
     function applyFilter(category) {
         if (category === 'all') {
@@ -46,6 +70,9 @@
                 btn.classList.add('active');
             }
         });
+
+        // Refresh los contadores visuales de los badges
+        updateFilterCounts();
     }
 
     filterButtons.forEach(function (btn) {
@@ -114,5 +141,8 @@
     if ('IntersectionObserver' in window) {
         animateDishes();
     }
+
+    /* ---------- 4. Initialize Filter Counts ---------- */
+    updateFilterCounts();
 
 })();
