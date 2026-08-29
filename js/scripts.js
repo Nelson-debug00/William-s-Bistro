@@ -56,6 +56,14 @@
         }
     });
 
+    // Close mobile menu when tapping outside (on the page)
+    document.addEventListener('click', function (e) {
+        if (!navToggle || !navToggle.classList.contains('active')) return;
+        if (navLinks && navLinks.contains(e.target)) return;
+        if (e.target === navToggle || navToggle.contains(e.target)) return;
+        toggleNav();
+    });
+
     /* ---------- 3. Active Link Highlight (Scroll Spy) ---------- */
     const sections = document.querySelectorAll('section[id]');
     const navLinkEls = document.querySelectorAll('.navbar__link:not(.navbar__link--cta)');
@@ -209,5 +217,107 @@
     // Check ahora y luego cada minuto (60s) para capturar el cruce exacto.
     updateStatusIndicators();
     setInterval(updateStatusIndicators, 60 * 1000);
+
+    /* ---------- 8. Lightbox para fotos de Instagram ---------- */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox ? lightbox.querySelector('.lightbox__img') : null;
+    const lightboxClose = lightbox ? lightbox.querySelector('.lightbox__close') : null;
+
+    function openLightbox(src) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.contact__post').forEach(function (post) {
+        post.addEventListener('click', function (e) {
+            const src = post.getAttribute('data-full');
+            if (!src) return;
+            e.preventDefault();
+            openLightbox(src);
+        });
+    });
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+
+    /* ---------- 9. Carrusel del Mostrador Virtual (móvil) ---------- */
+    const carouselGrid = document.querySelector('.specialties__carousel .specialties__grid');
+    const carouselPrev = document.querySelector('.carousel__btn--prev');
+    const carouselNext = document.querySelector('.carousel__btn--next');
+
+    function slideCarousel(dir) {
+        if (!carouselGrid) return;
+        const card = carouselGrid.querySelector('.card');
+        if (!card) return;
+        const step = card.offsetWidth + parseFloat(getComputedStyle(carouselGrid).columnGap || '0');
+        carouselGrid.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
+
+    if (carouselPrev) {
+        carouselPrev.addEventListener('click', function () {
+            slideCarousel(-1);
+        });
+    }
+
+    if (carouselNext) {
+        carouselNext.addEventListener('click', function () {
+            slideCarousel(1);
+        });
+    }
+
+    /* ---------- 10. TikTok Embed Responsive (solo video) ---------- */
+    // El embed de TikTok fuerza internamente min-width: 325px y el video
+    // tiene una relación 9:16 (height = width * 1.7917). En vez de encoger
+    // el iframe (que corta el contenido), se mantiene a su tamaño nativo
+    // (325x582 = solo el área de video, sin la descripción) y se escala
+    // con transform según el ancho del contenedor para ser responsive.
+    const tiktokEmbed = document.querySelector('.contact__tiktok-embed');
+
+    function fitTikTokEmbed() {
+        if (!tiktokEmbed) return;
+        const iframe = tiktokEmbed.querySelector('iframe');
+        if (!iframe) return;
+
+        const BASE_W = 325; // ancho nativo del embed
+        const BASE_H = 582; // alto del área de video (325 * 1.7917)
+        const targetW = tiktokEmbed.clientWidth;
+        if (!targetW) return;
+
+        const scale = targetW / BASE_W;
+        iframe.style.width = BASE_W + 'px';
+        iframe.style.height = BASE_H + 'px';
+        iframe.style.transform = 'scale(' + scale + ')';
+        iframe.style.transformOrigin = '0 0';
+        tiktokEmbed.style.height = Math.round(BASE_H * scale) + 'px';
+    }
+
+    if (tiktokEmbed) {
+        fitTikTokEmbed();
+        window.addEventListener('load', fitTikTokEmbed);
+        window.addEventListener('resize', fitTikTokEmbed);
+    }
 
 })();
