@@ -433,8 +433,9 @@
     }
 
     .menu-filters {
-        top: 64px;
-        gap: 0.5rem;
+        top: 76px;
+        gap: 0.4rem;
+        padding: 0.65rem 0.75rem;
     }
 
     .menu-filters__btn {
@@ -457,8 +458,22 @@
         padding: 1.15rem 0.3rem 0.5rem;
     }
 
+    .menu-filters {
+        top: 76px;
+        gap: 0.35rem;
+        padding: 0.5rem 0.6rem;
+    }
+
     .menu-filters__btn {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.9rem;
+        font-size: 0.7rem;
+        padding: 0.3rem 0.75rem;
+    }
+
+    .menu-filters__count {
+        min-width: 16px;
+        height: 16px;
+        font-size: 0.62rem;
+        margin-left: 0.3rem;
+        padding: 0 0.3rem;
     }
 }
