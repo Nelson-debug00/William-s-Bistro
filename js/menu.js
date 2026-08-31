@@ -12,7 +12,7 @@
 
     /* Contar platos por categoría y actualizar los badges de los filtros */
     function countDishesByCategory() {
-        const counts = { all: 0, desayunos: 0, sandwiches: 0, jugos: 0, extras: 0 };
+        const counts = { all: 0, desayunos: 0, almuerzos: 0, jugos: 0, postres: 0 };
         allDishes.forEach(function (dish) {
             const cat = dish.getAttribute('data-category');
             if (cat && counts.hasOwnProperty(cat)) {

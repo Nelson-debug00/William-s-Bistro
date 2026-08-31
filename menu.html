@@ -130,41 +130,127 @@
           Cada plato preparado al momento con ingredientes frescos y de la más
           alta calidad.
         </p>
-        <a href="#desayunos" class="btn btn--primary">EXPLORAR EL MENÚ</a>
+        <a href="#almuerzos" class="btn btn--primary">EXPLORAR EL MENÚ</a>
       </div>
     </section>
 
     <!-- ======================= FILTROS ======================= -->
     <div class="menu-filters" id="menuFilters">
       <button class="menu-filters__btn active" data-filter="all">
-        Todo <span class="menu-filters__count">18</span>
+        Todo <span class="menu-filters__count">21</span>
       </button>
       <button class="menu-filters__btn" data-filter="desayunos">
         Desayunos <span class="menu-filters__count">4</span>
       </button>
-      <button class="menu-filters__btn" data-filter="sandwiches">
-        Sándwiches <span class="menu-filters__count">4</span>
+      <button class="menu-filters__btn" data-filter="almuerzos">
+        Almuerzos <span class="menu-filters__count">10</span>
       </button>
       <button class="menu-filters__btn" data-filter="jugos">
         Jugos & Bebidas <span class="menu-filters__count">6</span>
       </button>
-      <button class="menu-filters__btn" data-filter="extras">
-        Extras <span class="menu-filters__count">4</span>
+      <button class="menu-filters__btn" data-filter="postres">
+        Postres <span class="menu-filters__count">1</span>
       </button>
     </div>
 
     <!-- ======================= SECCIÓN DESAYUNOS ======================= -->
-    <section class="menu-section" id="desayunos" data-category="desayunos">
+    <section
+      class="menu-section menu-section--alt"
+      id="desayunos"
+      data-category="desayunos"
+    >
       <div class="menu-section__header">
         <h2 class="menu-section__title">Desayunos</h2>
+        <p class="menu-section__desc">El mejor comienzo para tu día</p>
+      </div>
+      <div class="menu-section__grid">
+        <article class="dish" data-category="desayunos" data-dish="">
+          <div class="dish__image">
+            <img
+              src="./assets/arepas2.png"
+              alt="arepas2.png"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
+            </div>
+            <p class="dish__desc"></p>
+          </div>
+        </article>
+        <article class="dish" data-category="desayunos" data-dish="">
+          <div class="dish__image">
+            <img
+              src="./assets/arepa3.jpg"
+              alt="arepa3.jpg"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
+            </div>
+            <p class="dish__desc"></p>
+          </div>
+        </article>
+        <article class="dish" data-category="desayunos" data-dish="">
+          <div class="dish__image">
+            <img
+              src="./assets/pastelitos.jpg"
+              alt="pastelitos.jpg"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
+            </div>
+            <p class="dish__desc"></p>
+          </div>
+        </article>
+        <article class="dish" data-category="desayunos" data-dish="">
+          <div class="dish__image">
+            <img
+              src="./assets/tostadas_ternera.jpg"
+              alt="tostadas_ternera.jpg"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
+            </div>
+            <p class="dish__desc"></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================= SECCIÓN ALMUERZOS ======================= -->
+    <section class="menu-section" id="almuerzos" data-category="almuerzos">
+      <div class="menu-section__header">
+        <h2 class="menu-section__title">Almuerzos</h2>
         <p class="menu-section__desc">
-          Para empezar el día con toda la energía
+          Platos fuertes preparados al momento
         </p>
       </div>
       <div class="menu-section__grid">
         <article
           class="dish"
-          data-category="desayunos"
+          data-category="almuerzos"
           data-dish="Alitas_BBQ"
         >
           <div class="dish__image">
@@ -192,7 +278,7 @@
 
         <article
           class="dish"
-          data-category="desayunos"
+          data-category="almuerzos"
           data-dish="Pasta_Carbonara_con_Camarones"
         >
           <div class="dish__image">
@@ -219,7 +305,7 @@
 
         <article
           class="dish"
-          data-category="desayunos"
+          data-category="almuerzos"
           data-dish="Bistro_Special_Burger"
         >
           <div class="dish__image">
@@ -247,7 +333,7 @@
 
         <article
           class="dish"
-          data-category="desayunos"
+          data-category="almuerzos"
           data-dish="Crispy_Chicken_Combo"
         >
           <div class="dish__image">
@@ -271,31 +357,12 @@
             </p>
           </div>
         </article>
-      </div>
-    </section>
 
-    <!-- ======================= SECCIÓN SÁNDWICHES ======================= -->
-    <section
-      class="menu-section menu-section--alt"
-      id="sandwiches"
-      data-category="sandwiches"
-    >
-      <div class="menu-section__header">
-        <h2 class="menu-section__title">Sándwiches Gourmet</h2>
-        <p class="menu-section__desc">
-          Pan artesanal tostado, ingredientes premium
-        </p>
-      </div>
-      <div class="menu-section__grid">
-        <article
-          class="dish"
-          data-category="sandwiches"
-          data-dish="sandwich_supremo"
-        >
+        <article class="dish" data-category="almuerzos" data-dish="">
           <div class="dish__image">
             <img
-              src="./assets/sandwich_supremo.webp"
-              alt="Sándwich Supremo"
+              src="./assets/almuerzo1.jpg"
+              alt="almuerzo1.jpg"
               loading="lazy"
               width="300"
               height="200"
@@ -303,25 +370,18 @@
           </div>
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Sándwich Supremo</h3>
-              <span class="dish__price" data-usd="8.00">$8.00</span>
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
             </div>
-            <p class="dish__desc">
-              Pan brioche tostado, pechuga de pollo a la parrilla, queso
-              fundido, aguacate, tocino, tomate y aderezo de la casa.
-            </p>
+            <p class="dish__desc"></p>
           </div>
         </article>
 
-        <article
-          class="dish"
-          data-category="sandwiches"
-          data-dish="sandwich_club"
-        >
+        <article class="dish" data-category="almuerzos" data-dish="">
           <div class="dish__image">
             <img
-              src="./assets/sandwich_club.webp"
-              alt="Sándwich Club"
+              src="./assets/almuerzo2.jpg"
+              alt="almuerzo2.jpg"
               loading="lazy"
               width="300"
               height="200"
@@ -329,25 +389,18 @@
           </div>
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Sándwich Club</h3>
-              <span class="dish__price" data-usd="7.50">$7.50</span>
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
             </div>
-            <p class="dish__desc">
-              Triple capa de pan tostado con jamón, pavo, queso, lechuga,
-              tomate, tocino crujiente y mayonesa de chipotle.
-            </p>
+            <p class="dish__desc"></p>
           </div>
         </article>
 
-        <article
-          class="dish"
-          data-category="sandwiches"
-          data-dish="sandwich_vegetariano"
-        >
+        <article class="dish" data-category="almuerzos" data-dish="">
           <div class="dish__image">
             <img
-              src="./assets/sandwich_vegetariano.webp"
-              alt="Sándwich Vegetariano"
+              src="./assets/almuerzo4.jpg"
+              alt="almuerzo4.jpg"
               loading="lazy"
               width="300"
               height="200"
@@ -355,25 +408,18 @@
           </div>
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Sándwich Vegetariano</h3>
-              <span class="dish__price" data-usd="6.50">$6.50</span>
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
             </div>
-            <p class="dish__desc">
-              Pan integral con hummus, aguacate, tomate, lechuga, queso panela,
-              pimentón asado y pesto fresco.
-            </p>
+            <p class="dish__desc"></p>
           </div>
         </article>
 
-        <article
-          class="dish"
-          data-category="sandwiches"
-          data-dish="sandwich_res"
-        >
+        <article class="dish" data-category="almuerzos" data-dish="">
           <div class="dish__image">
             <img
-              src="./assets/sandwich_res.webp"
-              alt="Sándwich de Carne"
+              src="./assets/almuerzo5.jpg"
+              alt="almuerzo5.jpg"
               loading="lazy"
               width="300"
               height="200"
@@ -381,13 +427,48 @@
           </div>
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Sándwich de Res</h3>
-              <span class="dish__price" data-usd="9.00">$9.00</span>
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
             </div>
-            <p class="dish__desc">
-              Pan baguette, lonjas de res a la parrilla, cebolla caramelizada,
-              queso provolone, rúcula y salsa de champiñones.
-            </p>
+            <p class="dish__desc"></p>
+          </div>
+        </article>
+
+        <article class="dish" data-category="almuerzos" data-dish="">
+          <div class="dish__image">
+            <img
+              src="./assets/almuerzo6.jpg"
+              alt="almuerzo6.jpg"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
+            </div>
+            <p class="dish__desc"></p>
+          </div>
+        </article>
+
+        <article class="dish" data-category="almuerzos" data-dish="">
+          <div class="dish__image">
+            <img
+              src=""
+              alt=""
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
+            </div>
+            <p class="dish__desc"></p>
           </div>
         </article>
       </div>
@@ -498,72 +579,33 @@
       </div>
     </section>
 
-    <!-- ======================= SECCIÓN EXTRAS ======================= -->
+    <!-- ======================= SECCIÓN POSTRES ======================= -->
     <section
       class="menu-section menu-section--alt"
-      id="extras"
-      data-category="extras"
+      id="postres"
+      data-category="postres"
     >
       <div class="menu-section__header">
-        <h2 class="menu-section__title">Extras & Acompañamientos</h2>
-        <p class="menu-section__desc">Para complementar tu pedido</p>
+        <h2 class="menu-section__title">Postres</h2>
+        <p class="menu-section__desc">El dulce final perfecto</p>
       </div>
-      <div class="menu-section__grid menu-section__grid--beverages">
-        <article
-          class="dish dish--extra"
-          data-category="extras"
-          data-dish="tocino_crujiente"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Tocino Crujiente</h3>
-              <span class="dish__price" data-usd="2.00">$2.00</span>
-            </div>
-            <p class="dish__desc">3 lonjas de tocino a la parrilla.</p>
+      <div class="menu-section__grid">
+        <article class="dish" data-category="postres" data-dish="">
+          <div class="dish__image">
+            <img
+              src="./assets/postre1.jpg"
+              alt="postre1.jpg"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
           </div>
-        </article>
-
-        <article
-          class="dish dish--extra"
-          data-category="extras"
-          data-dish="queso_gratinado"
-        >
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Queso Gratinado</h3>
-              <span class="dish__price" data-usd="1.50">$1.50</span>
+              <h3 class="dish__name"></h3>
+              <span class="dish__price" data-usd="0"></span>
             </div>
-            <p class="dish__desc">Porción extra de queso fundido.</p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--extra"
-          data-category="extras"
-          data-dish="aguacate"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Aguacate</h3>
-              <span class="dish__price" data-usd="2.00">$2.00</span>
-            </div>
-            <p class="dish__desc">Medio aguacate fresco en lonjas.</p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--extra"
-          data-category="extras"
-          data-dish="porcion_papas"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Porción de Papas</h3>
-              <span class="dish__price" data-usd="3.00">$3.00</span>
-            </div>
-            <p class="dish__desc">
-              Papas a la francesa crujientes con salsa de la casa.
-            </p>
+            <p class="dish__desc"></p>
           </div>
         </article>
       </div>
