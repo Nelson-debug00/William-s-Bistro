@@ -142,14 +142,35 @@
       <button class="menu-filters__btn" data-filter="desayunos">
         Desayunos <span class="menu-filters__count">4</span>
       </button>
-      <button class="menu-filters__btn" data-filter="almuerzos">
-        Almuerzos <span class="menu-filters__count">9</span>
+      <button class="menu-filters__btn" data-filter="entradas">
+        Entradas <span class="menu-filters__count">0</span>
+      </button>
+      <div class="menu-filters__dropdown">
+        <button class="menu-filters__btn" data-filter="almuerzos">
+          Platos Fuertes <span class="menu-filters__count">9</span>
+          <span class="menu-filters__caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="menu-filters__menu" id="platosFuertesMenu">
+          <button class="menu-filters__item" data-filter="pastas">Pastas</button>
+          <button class="menu-filters__item" data-filter="aves_res">Aves y Res</button>
+          <button class="menu-filters__item" data-filter="parrillas">Parrillas</button>
+          <button class="menu-filters__item" data-filter="platos_tradicionales">Platos Tradicionales</button>
+          <button class="menu-filters__item" data-filter="pescados_mariscos">Pescados y Mariscos</button>
+          <button class="menu-filters__item" data-filter="pollo_broaster">Pollo Broaster</button>
+          <button class="menu-filters__item" data-filter="platos_habibi">Platos Habibi</button>
+        </div>
+      </div>
+      <button class="menu-filters__btn" data-filter="comida_china">
+        Comida China <span class="menu-filters__count">0</span>
+      </button>
+      <button class="menu-filters__btn" data-filter="comida_rapida">
+        Comida Rápida <span class="menu-filters__count">0</span>
       </button>
       <button class="menu-filters__btn" data-filter="jugos">
         Jugos & Bebidas <span class="menu-filters__count">6</span>
       </button>
       <button class="menu-filters__btn" data-filter="postres">
-        Postres <span class="menu-filters__count">1</span>
+        Postres & Café <span class="menu-filters__count">1</span>
       </button>
     </div>
 
@@ -254,10 +275,22 @@
       </div>
     </section>
 
-    <!-- ======================= SECCIÓN ALMUERZOS ======================= -->
+    <!-- ======================= SECCIÓN ENTRADAS ======================= -->
+    <section class="menu-section menu-section--alt" id="entradas" data-category="entradas">
+      <div class="menu-section__header">
+        <h2 class="menu-section__title">Entradas</h2>
+        <p class="menu-section__desc">
+          Para abrir el apetito antes del plato principal
+        </p>
+      </div>
+      <div class="menu-section__grid">
+      </div>
+    </section>
+
+    <!-- ======================= SECCIÓN PLATOS FUERTES ======================= -->
     <section class="menu-section" id="almuerzos" data-category="almuerzos">
       <div class="menu-section__header">
-        <h2 class="menu-section__title">Almuerzos</h2>
+        <h2 class="menu-section__title">Platos Fuertes</h2>
         <p class="menu-section__desc">
           Platos fuertes preparados al momento
         </p>
@@ -565,6 +598,30 @@
       </div>
     </section>
 
+    <!-- ======================= SECCIÓN COMIDA CHINA ======================= -->
+    <section class="menu-section" id="comida_china" data-category="comida_china">
+      <div class="menu-section__header">
+        <h2 class="menu-section__title">Comida China</h2>
+        <p class="menu-section__desc">
+          Sabores orientales preparados al wok
+        </p>
+      </div>
+      <div class="menu-section__grid">
+      </div>
+    </section>
+
+    <!-- ======================= SECCIÓN COMIDA RÁPIDA ======================= -->
+    <section class="menu-section menu-section--alt" id="comida_rapida" data-category="comida_rapida">
+      <div class="menu-section__header">
+        <h2 class="menu-section__title">Comida Rápida</h2>
+        <p class="menu-section__desc">
+          Clásicos irresistibles para un antojo veloz
+        </p>
+      </div>
+      <div class="menu-section__grid">
+      </div>
+    </section>
+
     <!-- ======================= SECCIÓN JUGOS & BEBIDAS ======================= -->
     <section class="menu-section" id="jugos" data-category="jugos">
       <div class="menu-section__header">
@@ -670,14 +727,14 @@
       </div>
     </section>
 
-    <!-- ======================= SECCIÓN POSTRES ======================= -->
+    <!-- ======================= SECCIÓN POSTRES Y CAFÉS ======================= -->
     <section
       class="menu-section menu-section--alt"
       id="postres"
       data-category="postres"
     >
       <div class="menu-section__header">
-        <h2 class="menu-section__title">Postres</h2>
+        <h2 class="menu-section__title">Postres & Café</h2>
         <p class="menu-section__desc">El dulce final perfecto</p>
       </div>
       <div class="menu-section__grid">

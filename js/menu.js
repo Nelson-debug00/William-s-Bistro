@@ -9,15 +9,26 @@
     const filterButtons = document.querySelectorAll('.menu-filters__btn');
     const menuSections = document.querySelectorAll('.menu-section');
     const allDishes = document.querySelectorAll('.dish');
+    const dropdown = document.querySelector('.menu-filters__dropdown');
+    const dropdownMenu = document.querySelector('.menu-filters__menu');
+    const dropdownItems = document.querySelectorAll('.menu-filters__item');
+
+    /* Subcategorías del desplegable "Platos Fuertes" */
+    const SUBCATS = ['pastas', 'aves_res', 'parrillas', 'platos_tradicionales', 'pescados_mariscos', 'pollo_broaster', 'platos_habibi'];
 
     /* Contar platos por categoría y actualizar los badges de los filtros */
     function countDishesByCategory() {
-        const counts = { all: 0, desayunos: 0, almuerzos: 0, jugos: 0, postres: 0 };
+        const counts = { all: 0, desayunos: 0, entradas: 0, almuerzos: 0, comida_china: 0, comida_rapida: 0, jugos: 0, postres: 0 };
+        SUBCATS.forEach(function (sub) { counts[sub] = 0; });
         allDishes.forEach(function (dish) {
             const cat = dish.getAttribute('data-category');
+            const sub = dish.getAttribute('data-subcategory');
             if (cat && counts.hasOwnProperty(cat)) {
                 counts[cat] += 1;
                 counts.all += 1;
+            }
+            if (sub && counts.hasOwnProperty(sub)) {
+                counts[sub] += 1;
             }
         });
         return counts;
@@ -32,6 +43,33 @@
                 countSpan.textContent = counts[filter];
             }
         });
+        dropdownItems.forEach(function (item) {
+            const filter = item.getAttribute('data-filter');
+            const countSpan = item.querySelector('.menu-filters__count');
+            if (countSpan && counts.hasOwnProperty(filter)) {
+                countSpan.textContent = counts[filter];
+            }
+        });
+    }
+
+    function setActiveButton(category) {
+        filterButtons.forEach(function (btn) {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-filter') === category) {
+                btn.classList.add('active');
+            }
+        });
+        dropdownItems.forEach(function (item) {
+            item.classList.remove('active');
+            if (item.getAttribute('data-filter') === category) {
+                item.classList.add('active');
+            }
+        });
+        // Si se elige una subcategoría, el botón principal muestra estado activo
+        if (dropdown && SUBCATS.indexOf(category) !== -1) {
+            const mainBtn = dropdown.querySelector('.menu-filters__btn');
+            if (mainBtn) mainBtn.classList.add('active');
+        }
     }
 
     function applyFilter(category) {
@@ -42,6 +80,19 @@
             });
             allDishes.forEach(function (dish) {
                 dish.style.display = '';
+            });
+        } else if (SUBCATS.indexOf(category) !== -1) {
+            // Subcategoría: solo muestra la sección almuerzos con los platos que coincidan
+            menuSections.forEach(function (section) {
+                section.classList.toggle('hidden', section.getAttribute('data-category') !== 'almuerzos');
+            });
+            allDishes.forEach(function (dish) {
+                const sub = dish.getAttribute('data-subcategory');
+                if (dish.getAttribute('data-category') === 'almuerzos' && sub === category) {
+                    dish.style.display = '';
+                } else {
+                    dish.style.display = 'none';
+                }
             });
         } else {
             // Hide sections that don't match; show matching ones
@@ -64,12 +115,12 @@
         }
 
         // Update active button
-        filterButtons.forEach(function (btn) {
-            btn.classList.remove('active');
-            if (btn.getAttribute('data-filter') === category) {
-                btn.classList.add('active');
-            }
-        });
+        setActiveButton(category);
+
+        // Cerrar desplegable tras elegir subcategoría
+        if (dropdown && SUBCATS.indexOf(category) !== -1) {
+            dropdown.classList.remove('is-open');
+        }
 
         // Refresh los contadores visuales de los badges
         updateFilterCounts();
@@ -83,7 +134,7 @@
             // Smooth scroll to first visible section
             setTimeout(function () {
                 const firstVisible = document.querySelector('.menu-section:not(.hidden)');
-                if (firstVisible && category !== 'all') {
+                if (firstVisible && category !== 'all' && SUBCATS.indexOf(category) === -1) {
                     const offset = 130;
                     const top = firstVisible.getBoundingClientRect().top + window.scrollY - offset;
                     window.scrollTo({ top: top, behavior: 'smooth' });
@@ -91,6 +142,34 @@
             }, 100);
         });
     });
+
+    /* ---------- 1.5 Dropdown "Platos Fuertes" ---------- */
+    if (dropdown && dropdownMenu) {
+        dropdown.querySelector('.menu-filters__btn').addEventListener('click', function (e) {
+            e.stopPropagation();
+            dropdown.classList.toggle('is-open');
+        });
+
+        dropdownItems.forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.stopPropagation();
+                const category = item.getAttribute('data-filter');
+                applyFilter(category);
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('is-open');
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                dropdown.classList.remove('is-open');
+            }
+        });
+    }
 
     /* ---------- 2. URL Hash Navigation ---------- */
     // If URL has a hash matching a category id, scroll to it
