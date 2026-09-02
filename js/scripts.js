@@ -5,24 +5,108 @@
 (function () {
     'use strict';
 
-    /* ---------- 1. Navbar Scroll Effect ---------- */
+/* ---------- 1. Navbar Scroll Effect ---------- */
     const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const MOBILE_BP = 640;
+    let cachedInnerWidth = window.innerWidth;
 
-    function handleNavbarScroll() {
-        if (window.scrollY > 60) {
+    /* ---------- 1b. Scroll spy + Back to top (consolidado en un solo handler) ---------- */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinkEls = document.querySelectorAll('.navbar__link:not(.navbar__link--cta)');
+    const backToTop = document.createElement('button');
+    backToTop.className = 'back-to-top';
+    backToTop.type = 'button';
+    backToTop.setAttribute('aria-label', 'Volver arriba');
+    backToTop.innerHTML = '&uarr;';
+    document.body.appendChild(backToTop);
+
+    backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Cache section offsets
+    var sectionOffsets = [];
+    function cacheSectionOffsets() {
+        sectionOffsets = [];
+        sections.forEach(function (section) {
+            sectionOffsets.push({
+                id: section.getAttribute('id'),
+                top: section.offsetTop,
+                height: section.offsetHeight
+            });
+        });
+    }
+    cacheSectionOffsets();
+
+    function onScroll() {
+        var scrollY = window.scrollY;
+
+        // Navbar scroll
+        if (scrollY > 60) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Navbar hide (mobile)
+        if (cachedInnerWidth > MOBILE_BP) {
+            navbar.classList.remove('navbar--hidden');
+            document.body.classList.remove('nav-hidden');
+        } else if (scrollY <= 80) {
+            navbar.classList.remove('navbar--hidden');
+            document.body.classList.remove('nav-hidden');
+        } else if (navLinks && !navLinks.classList.contains('active')) {
+            navbar.classList.add('navbar--hidden');
+            document.body.classList.add('nav-hidden');
+        }
+
+        // Scroll spy
+        if (sectionOffsets.length) {
+            var current = '';
+            var scrollPos = scrollY + 120;
+            for (var i = 0; i < sectionOffsets.length; i++) {
+                var s = sectionOffsets[i];
+                if (scrollPos >= s.top && scrollPos < s.top + s.height) {
+                    current = s.id;
+                    break;
+                }
+            }
+            navLinkEls.forEach(function (link) {
+                var href = link.getAttribute('href');
+                if (!href || !href.startsWith('#')) return;
+                if (current && href.includes(current)) {
+                    link.classList.add('active-link');
+                } else {
+                    link.classList.remove('active-link');
+                }
+            });
+        }
+
+        // Back to top
+        if (scrollY > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
     }
 
-    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
-    handleNavbarScroll();
+    // Throttle scroll with rAF
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            requestAnimationFrame(function () {
+                onScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    onScroll(); // initial call
 
     /* ---------- 2. Mobile Nav Toggle ---------- */
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-
     function toggleNav() {
         navToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
@@ -32,6 +116,12 @@
 
         // Prevent body scroll when menu open
         document.body.style.overflow = isActive ? 'hidden' : '';
+
+        // Ensure navbar is visible when menu opens
+        if (isActive) {
+            navbar.classList.remove('navbar--hidden');
+            document.body.classList.remove('nav-hidden');
+        }
     }
 
     if (navToggle && navLinks) {
@@ -64,39 +154,7 @@
         toggleNav();
     });
 
-    /* ---------- 3. Active Link Highlight (Scroll Spy) ---------- */
-    const sections = document.querySelectorAll('section[id]');
-    const navLinkEls = document.querySelectorAll('.navbar__link:not(.navbar__link--cta)');
-
-    function updateActiveLink() {
-        let current = '';
-        const scrollPos = window.scrollY + 120;
-
-        sections.forEach(function (section) {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            if (scrollPos >= top && scrollPos < top + height) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinkEls.forEach(function (link) {
-            const href = link.getAttribute('href');
-            // Scroll-spy SOLO para enlaces de anclas de la misma página (#seccion).
-            // Los enlaces a otras páginas (index.html, menu.html, index.html#...) no
-            // se tocan: conservan su estado estático (ej. "Menú" activo en menu.html).
-            if (!href || !href.startsWith('#')) return;
-            if (current && href.includes(current)) {
-                link.classList.add('active-link');
-            } else {
-                link.classList.remove('active-link');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', updateActiveLink, { passive: true });
-
-    /* ---------- 3b. Smooth Scroll + URL limpia para anclas ---------- */
+    /* ---------- 3. Smooth Scroll + URL limpia para anclas ---------- */
     // Evita que quede "/#seccion" en la URL al navegar a una ancla de la
     // misma página: hace scroll suave y limpia el hash con history.replaceState.
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
@@ -156,18 +214,27 @@
         yearEl.textContent = new Date().getFullYear();
     }
 
-    /* ---------- 5. Initialize AOS ---------- */
-    if (typeof AOS !== 'undefined') {
-        window.addEventListener('load', function () {
-            AOS.init({
-                duration: 800,
-                easing: 'ease-out-cubic',
-                once: true,
-                offset: 80,
-                disable: false
+    /* ---------- 5. Native IntersectionObserver (reemplaza AOS) ---------- */
+    function initFadeIn() {
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-zoom').forEach(function (el) {
+                el.classList.add('visible');
             });
+            return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-zoom').forEach(function (el) {
+            observer.observe(el);
         });
     }
+    initFadeIn();
 
     /* ---------- 6. Image Lazy Loading Fallback ---------- */
     if ('loading' in HTMLImageElement.prototype) {
@@ -319,5 +386,16 @@
         window.addEventListener('load', fitTikTokEmbed);
         window.addEventListener('resize', fitTikTokEmbed);
     }
+
+    /* ---------- 11. Resize: refresh cachés de scroll spy ---------- */
+    window.addEventListener('resize', function () {
+        cachedInnerWidth = window.innerWidth;
+        cacheSectionOffsets();
+        if (cachedInnerWidth > MOBILE_BP) {
+            navbar.classList.remove('navbar--hidden');
+            document.body.classList.remove('nav-hidden');
+        }
+        onScroll();
+    }, { passive: true });
 
 })();

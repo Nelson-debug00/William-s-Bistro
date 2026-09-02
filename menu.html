@@ -124,20 +124,18 @@
     <section class="menu-hero" id="menu-top">
       <div class="menu-hero__overlay"></div>
       <div class="menu-hero__content">
-        <span class="section-tag">William's Bistro</span>
         <h1 class="menu-hero__title">Nuestro Menú</h1>
         <p class="menu-hero__subtitle">
           Cada plato preparado al momento con ingredientes frescos y de la más
           alta calidad.
         </p>
-        <a href="#almuerzos" class="btn btn--primary">EXPLORAR EL MENÚ</a>
       </div>
     </section>
 
     <!-- ======================= FILTROS ======================= -->
     <div class="menu-filters" id="menuFilters">
       <button class="menu-filters__btn active" data-filter="all">
-        Todo <span class="menu-filters__count">20</span>
+        Todo <span class="menu-filters__count">14</span>
       </button>
       <button class="menu-filters__btn" data-filter="desayunos">
         Desayunos <span class="menu-filters__count">4</span>
@@ -167,10 +165,16 @@
         Comida Rápida <span class="menu-filters__count">0</span>
       </button>
       <button class="menu-filters__btn" data-filter="jugos">
-        Jugos & Bebidas <span class="menu-filters__count">6</span>
+        Café, Postres y Bebidas <span class="menu-filters__count">3</span>
       </button>
-      <button class="menu-filters__btn" data-filter="postres">
-        Postres & Café <span class="menu-filters__count">1</span>
+      <button
+        type="button"
+        class="menu-filters__btn"
+        id="pdfMenuBtn"
+        aria-haspopup="dialog"
+        aria-controls="pdfModal"
+      >
+        Ver más…
       </button>
     </div>
 
@@ -622,123 +626,16 @@
       </div>
     </section>
 
-    <!-- ======================= SECCIÓN JUGOS & BEBIDAS ======================= -->
-    <section class="menu-section" id="jugos" data-category="jugos">
+    <!-- ======================= SECCIÓN CAFÉ, POSTRES Y BEBIDAS ======================= -->
+    <section class="menu-section" id="cafe_postres_bebidas" data-category="jugos">
       <div class="menu-section__header">
-        <h2 class="menu-section__title">Jugos & Bebidas</h2>
+        <h2 class="menu-section__title">Café, Postres y Bebidas</h2>
         <p class="menu-section__desc">
-          Frutas frescas exprimidas al momento, sin azúcar añadida
+          Frutas frescas exprimidas al momento y el dulce final perfecto
         </p>
       </div>
-      <div class="menu-section__grid menu-section__grid--beverages">
-        <article
-          class="dish dish--beverage"
-          data-category="jugos"
-          data-dish="jugo_naranja"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Jugo de Naranja</h3>
-              <span class="dish__price" data-usd="2.50">$2.50</span>
-            </div>
-            <p class="dish__desc">
-              Naranjas frescas exprimidas al momento. Vaso de 350ml.
-            </p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--beverage"
-          data-category="jugos"
-          data-dish="jugo_mango"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Jugo de Mango</h3>
-              <span class="dish__price" data-usd="3.00">$3.00</span>
-            </div>
-            <p class="dish__desc">
-              Mango maduro licuado con agua. Dulce natural.
-            </p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--beverage"
-          data-category="jugos"
-          data-dish="jugo_papaya"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Jugo de Papaya</h3>
-              <span class="dish__price" data-usd="3.00">$3.00</span>
-            </div>
-            <p class="dish__desc">Papaya fresca con un toque de leche.</p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--beverage"
-          data-category="jugos"
-          data-dish="jugo_fresa"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Jugo de Fresa</h3>
-              <span class="dish__price" data-usd="3.50">$3.50</span>
-            </div>
-            <p class="dish__desc">
-              Fresas frescas licuadas con leche. Una delicia cremosa.
-            </p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--beverage"
-          data-category="jugos"
-          data-dish="jugo_mixto"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Jugo Mixto</h3>
-              <span class="dish__price" data-usd="4.00">$4.00</span>
-            </div>
-            <p class="dish__desc">
-              Combinación de frutas de temporada: elige tus favoritas.
-            </p>
-          </div>
-        </article>
-
-        <article
-          class="dish dish--beverage"
-          data-category="jugos"
-          data-dish="cafe_americano"
-        >
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Café Americano</h3>
-              <span class="dish__price" data-usd="1.50">$1.50</span>
-            </div>
-            <p class="dish__desc">
-              Café recién hecho, grano seleccionado y tostado artesanal.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ======================= SECCIÓN POSTRES Y CAFÉS ======================= -->
-    <section
-      class="menu-section menu-section--alt"
-      id="postres"
-      data-category="postres"
-    >
-      <div class="menu-section__header">
-        <h2 class="menu-section__title">Postres & Café</h2>
-        <p class="menu-section__desc">El dulce final perfecto</p>
-      </div>
       <div class="menu-section__grid">
-        <article class="dish" data-category="postres" data-dish="Copa_Mousse_Chocolate">
+        <article class="dish" data-category="jugos" data-dish="Copa_Mousse_Chocolate">
           <div class="dish__image">
             <img
               src="./assets/postre1.jpg"
@@ -761,7 +658,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="postres" data-dish="Brownie_Solo">
+        <article class="dish" data-category="jugos" data-dish="Brownie_Solo">
           <div class="dish__image">
             <img
               src="./assets/browniesolo.jpg"
@@ -780,7 +677,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="postres" data-dish="Brownie_Oreo">
+        <article class="dish" data-category="jugos" data-dish="Brownie_Oreo">
           <div class="dish__image">
             <img
               src="./assets/brownieOreo.jpg"
@@ -823,6 +720,21 @@
         <a href="index.html" class="menu-cta__back">← Volver al Inicio</a>
       </div>
     </section>
+
+    <!-- ======================= MODAL MENÚ PDF ======================= -->
+    <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+      <div class="pdf-modal__content">
+        <iframe
+          src="https://drive.google.com/file/d/1Wzeb_TMjCLl0vRnB_A__vwbbPZ2srRQx/preview?usp=sharing"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          style="border: none"
+          title="Menú de William's Bistro en PDF"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
 
     <!-- ======================= FOOTER ======================= -->
     <footer class="footer" id="footer">
@@ -1054,6 +966,24 @@
         </defs>
       </svg>
     </a>
+
+    <!-- ======================= MODAL IMAGEN (vista grande) ======================= -->
+    <div class="img-modal" id="imgModal" aria-hidden="true">
+      <div class="img-modal__content" role="dialog" aria-modal="true" aria-label="Vista ampliada del plato">
+        <button
+          type="button"
+          class="img-modal__close"
+          id="imgModalClose"
+          aria-label="Cerrar imagen"
+        >
+          &times;
+        </button>
+        <figure class="img-modal__figure">
+          <img id="imgModalImg" src="" alt="" />
+          <figcaption class="img-modal__caption" id="imgModalCaption"></figcaption>
+        </figure>
+      </div>
+    </div>
 
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>

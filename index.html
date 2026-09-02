@@ -90,23 +90,129 @@
         "sameAs": ["https://www.instagram.com/williamsbistro_vzla"]
       }
     </script>
-    <!-- Preloads -->
-    <link rel="preload" href="css/styles.css" as="style" />
-    <link rel="preload" href="assets/barra2_blur.webp" as="image" />
+    <!-- Preloads & Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://www.tiktok.com" />
+    <link rel="preload" href="assets/barra2_blur.webp" as="image" fetchpriority="high" />
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap"
       rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <!-- AOS CSS cargado de forma no bloqueante -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
       media="print"
-      onload="this.media = 'all'"
+      onload="this.media='all'"
     />
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="css/styles.css" />
+      <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+    </noscript>
+    <style>
+      :root {
+        --bg-primary: #19120b;
+        --bg-secondary: #211910;
+        --bg-card: #2c2116;
+        --bg-card-hover: #37291b;
+        --bg-overlay: rgba(25, 18, 11, 0.65);
+        --gold: #D4AF37;
+        --gold-bright: #E5B80B;
+        --gold-soft: rgba(212, 175, 55, 0.15);
+        --gold-border: rgba(212, 175, 55, 0.35);
+        --text-white: #f3ead6;
+        --text-light: #e6dcc8;
+        --text-muted: #b3a68f;
+        --text-dim: #8f8570;
+        --font-script: 'Great Vibes', cursive;
+        --font-heading: 'Playfair Display', serif;
+        --font-body: 'Poppins', 'Segoe UI', sans-serif;
+        --max-width: 1200px;
+        --radius-sm: 8px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+        --t-fast: 0.2s ease;
+        --t-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        --t-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+        --shadow-gold: 0 8px 30px rgba(212, 175, 55, 0.2);
+        --shadow-gold-strong: 0 0 40px rgba(212, 175, 55, 0.35);
+      }
+      *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+      html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%;overflow-x:clip}
+      body{font-family:var(--font-body);background-color:var(--bg-primary);color:var(--text-light);line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+      img{max-width:100%;display:block;height:auto}
+      a{text-decoration:none;color:inherit}
+      ul{list-style:none}
+      h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:600;line-height:1.2}
+      ::selection{background:var(--gold);color:var(--bg-primary)}
+      ::-webkit-scrollbar{width:10px}
+      ::-webkit-scrollbar-track{background:var(--bg-primary)}
+      ::-webkit-scrollbar-thumb{background:var(--bg-card-hover);border-radius:10px}
+      .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--font-body);font-weight:600;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;padding:1rem 2.5rem;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:all var(--t-base);position:relative;overflow:hidden}
+      .btn--primary{background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--bg-primary);box-shadow:var(--shadow-gold);z-index:1}
+      .btn--primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-bright),var(--gold));opacity:0;transition:opacity var(--t-base);z-index:-1}
+      .btn--primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--shadow-gold-strong),0 10px 25px rgba(0,0,0,.4)}
+      .btn--primary:hover::before{opacity:1}
+      .btn--outline{background:transparent;color:var(--gold);border:1px solid rgba(212,175,55,.35)}
+      .btn--outline:hover{background:var(--gold-soft);border-color:var(--gold);transform:translateY(-2px)}
+      .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(25,18,11,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(212,175,55,.12);transition:background var(--t-base),border-color var(--t-base),box-shadow var(--t-base),transform var(--t-base)}
+      .navbar.scrolled{background:rgba(25,18,11,.96);box-shadow:var(--shadow-md);border-bottom-color:var(--gold-border)}
+      .navbar__container{max-width:var(--max-width);margin:0 auto;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+      .navbar__logo{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+      .navbar__logo-icon{width:44px;height:44px;border-radius:50%;object-fit:contain;background:transparent;border:none;filter:drop-shadow(0 0 8px rgba(212,175,55,.35));flex-shrink:0}
+      .navbar__logo-text{font-family:var(--font-script);font-size:1.7rem;color:var(--gold);text-shadow:0 2px 8px rgba(212,175,55,.3);transform:translateY(5px)}
+      .navbar__links{display:flex;align-items:center;gap:2rem}
+      .navbar__link{font-size:.95rem;font-weight:400;color:var(--text-light);position:relative;padding:.3rem 0;transition:color var(--t-fast)}
+      .navbar__link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width var(--t-base)}
+      .navbar__link:hover{color:var(--gold)}
+      .navbar__link:hover::after{width:100%}
+      .navbar__link.active-link{color:var(--gold)}
+      .navbar__link.active-link::after{width:100%}
+      .navbar__link--cta{background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--bg-primary)!important;font-weight:600;padding:.6rem 1.5rem;border-radius:var(--radius-sm);box-shadow:var(--shadow-gold);transition:all var(--t-base)}
+      .navbar__link--cta::after{display:none}
+      .navbar__link--cta:hover{transform:translateY(-2px) scale(1.05);box-shadow:var(--shadow-gold-strong);color:var(--bg-primary)!important}
+      .navbar__toggle{display:none;flex-direction:column;gap:5px;background:transparent;border:none;cursor:pointer;padding:6px;z-index:1001}
+      .navbar__toggle span{display:block;width:26px;height:3px;background:var(--gold);border-radius:3px;transition:all var(--t-base)}
+      .navbar__toggle.active span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+      .navbar__toggle.active span:nth-child(2){opacity:0}
+      .navbar__toggle.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+      .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background-image:url(assets/barra2_blur.webp);background-size:cover;background-position:center 5%;padding:120px 1.5rem}
+      .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(closest-side at 78% 20%,rgba(212,175,55,.22),transparent 60%);pointer-events:none;z-index:1}
+      .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,18,11,.55),rgba(25,18,11,.35) 55%,var(--bg-primary) 100%);z-index:1}
+      .hero__content{position:relative;z-index:2;max-width:760px;padding:0 1.5rem;animation:heroFadeIn 1.2s cubic-bezier(.4,0,.2,1) both}
+      .hero__title{font-family:var(--font-heading);font-weight:500;font-size:clamp(2.6rem,8vw,5.6rem);color:#f3ead6;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.35)}
+      .hero__divider{width:56px;height:2px;background:var(--gold);margin:30px auto;border-radius:2px}
+      .hero__subtitle{font-size:clamp(1rem,2vw,1.1rem);color:#cfc6b4;font-weight:300;line-height:1.85;max-width:460px;margin:0 auto 42px;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+      .hero__actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+      .hero .btn--primary{font-size:.9rem;padding:1rem 2.2rem}
+      .hero .btn--outline{background:rgba(25,18,11,.55)}
+      .hero__micro{margin-top:1.2rem;font-size:.85rem;letter-spacing:.04em;color:var(--gold);opacity:.9}
+      .hero__scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+      .hero__scroll-text{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.7}
+      .hero__scroll-line{width:2px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 1.8s ease-in-out infinite}
+      @keyframes heroFadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+      @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
+      .status-indicator{display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;padding:.35rem .7rem;border-radius:50px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:var(--gold);transition:all var(--t-fast)}
+      .status-indicator.open{background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.4);color:#25D366}
+      .status-indicator.closed{background:rgba(244,67,54,.12);border-color:rgba(244,67,54,.4);color:#EF5350}
+      .status-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+      .status-indicator.open .status-dot{background:#25D366;box-shadow:0 0 6px rgba(37,211,102,.5)}
+      .status-indicator.closed .status-dot{background:#EF5350;box-shadow:0 0 6px rgba(244,67,54,.5)}
+      .hero__micro{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;flex-wrap:wrap;justify-content:center}
+      .whatsapp-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:2000;width:56px;height:56px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 6px 16px rgba(0,0,0,.4));transition:transform var(--t-base),filter var(--t-base)}
+      .whatsapp-float svg{width:56px;height:56px}
+      .whatsapp-float:hover{transform:translateY(-4px) scale(1.06);filter:drop-shadow(0 10px 24px rgba(37,211,102,.45))}
+      @media(max-width:640px){.whatsapp-float{bottom:1rem;right:1rem;width:50px;height:50px}.whatsapp-float svg{width:50px;height:50px}}
+      .navbar--hidden{transform:translateY(-100%)}
+      .fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+      .fade-in.visible{opacity:1;transform:translateY(0)}
+      .fade-in-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease,transform .6s ease}
+      .fade-in-left.visible{opacity:1;transform:translateX(0)}
+      .fade-in-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease,transform .6s ease}
+      .fade-in-right.visible{opacity:1;transform:translateX(0)}
+      .fade-in-zoom{opacity:0;transform:scale(.92);transition:opacity .6s ease,transform .6s ease}
+      .fade-in-zoom.visible{opacity:1;transform:scale(1)}
+    </style>
   </head>
   <body>
     <!-- ======================= NAVBAR ======================= -->
@@ -117,6 +223,8 @@
             src="./assets/logo_sin_fondo.webp"
             alt="Logo de William's Bistro"
             class="navbar__logo-icon"
+            width="44"
+            height="44"
           />
           <span class="navbar__logo-text">William's Bistro</span>
         </a>
@@ -181,7 +289,7 @@
     <!-- ======================= PRESENTACIÓN ======================= -->
     <section class="about" id="about">
       <div class="about__container">
-        <div class="about__image" data-aos="fade-right">
+        <div class="about__image fade-in-right">
           <div class="about__image-frame">
             <img
               src="./assets/img_presentacion2.webp"
@@ -192,7 +300,7 @@
             />
           </div>
         </div>
-        <div class="about__text" data-aos="fade-left">
+        <div class="about__text fade-in-left">
           <span class="about__tag">Nuestra Esencia</span>
           <h2 class="about__title">Donde el Apetito Encuentra la Calidad</h2>
           <p class="about__paragraph">
@@ -238,7 +346,7 @@
 
       <div class="specialties__carousel">
         <div class="specialties__grid">
-        <article class="card" data-aos="fade-up">
+        <article class="card fade-in">
           <div class="card__image">
             <img
               src="./assets/almuerzo4.jpg"
@@ -261,7 +369,7 @@
           </div>
         </article>
 
-        <article class="card" data-aos="fade-up" data-aos-delay="100">
+        <article class="card fade-in" style="transition-delay:0.1s">
           <div class="card__image">
             <img
               src="./assets/hamburguesa1.jpg"
@@ -284,7 +392,7 @@
           </div>
         </article>
 
-        <article class="card" data-aos="fade-up" data-aos-delay="200">
+        <article class="card fade-in" style="transition-delay:0.2s">
           <div class="card__image">
             <img
               src="./assets/pastelitos.jpg"
@@ -330,7 +438,7 @@
     <!-- ======================= UBICACIÓN Y CONTACTO ======================= -->
     <section class="location" id="ubicacion">
       <div class="location__container">
-        <div class="location__map" data-aos="zoom-in">
+        <div class="location__map fade-in-zoom">
           <iframe
             src="https://www.google.com/maps?q=Williams%20Bistro%2C%20Calle%2021%2C%20Matur%C3%ADn%206201%2C%20Monagas&output=embed"
             width="100%"
@@ -348,7 +456,7 @@
           </iframe>
         </div>
 
-        <div class="location__info" data-aos="fade-left">
+        <div class="location__info fade-in-left">
           <span class="location__tag">Visítanos</span>
           <h2 class="location__title">Encuéntranos en Maturín</h2>
 
@@ -401,7 +509,7 @@
 
     <!-- ======================= CONTACTO ======================= -->
     <section class="contact" id="contacto">
-      <div class="contact__container" data-aos="fade-up">
+      <div class="contact__container fade-in">
         <div
           class="contact__social"
           style="scroll-margin-top: 80px"
@@ -492,6 +600,7 @@
           <div class="contact__tiktok-embed">
             <iframe
               src="https://www.tiktok.com/embed/7673883876829220116"
+              loading="lazy"
               scrolling="no"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
               allowfullscreen
@@ -763,8 +872,7 @@
       </figure>
     </div>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <!-- Animaciones: IntersectionObserver nativo (ver js/scripts.js) -->
     <script src="js/scripts.js" defer></script>
   </body>
 </html>

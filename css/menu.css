@@ -5,7 +5,7 @@
 /* ---------- Menu Hero ---------- */
 .menu-hero {
     position: relative;
-    min-height: 55vh;
+    min-height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +53,7 @@
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--text-white);
     font-weight: 300;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
@@ -66,10 +66,11 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.8rem;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     background: rgba(25, 18, 11, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--gold-border);
     border-bottom: 1px solid var(--gold-border);
 }
 
@@ -139,12 +140,20 @@
 .menu-filters__caret {
     display: inline-block;
     margin-left: 0.4rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
+    color: var(--gold);
+    line-height: 1;
     transition: transform var(--t-base);
 }
 
 .menu-filters__dropdown.is-open .menu-filters__caret {
     transform: rotate(180deg);
+    color: var(--gold-bright);
+}
+
+.menu-filters__btn.active .menu-filters__caret,
+.menu-filters__dropdown.is-open .menu-filters__btn.active .menu-filters__caret {
+    color: var(--bg-primary);
 }
 
 .menu-filters__menu {
@@ -248,17 +257,31 @@
     font-style: italic;
 }
 
+.menu-section__subtitle {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--gold);
+    text-align: center;
+    margin: 3.5rem auto 1.5rem;
+    max-width: 600px;
+    position: relative;
+}
+
+.menu-section__subtitle::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0.6rem auto 0;
+}
+
 .menu-section__grid {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-}
-
-.menu-section__grid--beverages {
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 900px;
 }
 
 /* ---------- Dish Card ---------- */
@@ -285,6 +308,7 @@
     position: relative;
     overflow: hidden;
     height: 170px;
+    cursor: zoom-in;
 }
 
 .dish__image::after {
@@ -372,31 +396,6 @@
     flex-grow: 1;
 }
 
-/* Beverage-style list item (no image) */
-.dish--beverage {
-    background: var(--bg-card);
-    border: 1px solid rgba(243, 234, 214, 0.06);
-    border-left: 3px solid var(--gold-border);
-    border-radius: var(--radius-sm);
-    box-shadow: none;
-    padding: 0;
-}
-
-.dish--beverage:hover {
-    border-left-color: var(--gold);
-    transform: translateX(4px);
-    box-shadow: var(--shadow-md);
-    background: var(--bg-card-hover);
-}
-
-.dish--beverage .dish__body {
-    padding: 1.3rem 1.5rem;
-}
-
-.dish--beverage .dish__head {
-    border-bottom: 1px dotted rgba(212, 175, 55, 0.2);
-}
-
 /* Extra-style list item (no image) — for sides & acompañamientos */
 .dish--extra {
     background: var(--bg-card);
@@ -475,6 +474,149 @@
     color: var(--gold);
 }
 
+/* ---------- Modal Menú PDF ---------- */
+html.modal-open,
+html.modal-open body {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+
+.pdf-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.88);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+}
+
+.pdf-modal.active {
+    display: flex;
+}
+
+.pdf-modal__content {
+    width: min(1000px, 100%);
+    height: 85vh;
+    max-height: 85vh;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.pdf-modal__content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .pdf-modal {
+        padding: 0.75rem;
+    }
+
+    .pdf-modal__content {
+        height: 82vh;
+    }
+}
+
+/* ---------- Modal Imagen (vista grande) ---------- */
+.img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 11000;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.img-modal.active {
+    display: flex;
+}
+
+.img-modal__content {
+    position: relative;
+    max-width: min(1000px, 100%);
+    max-height: 90vh;
+}
+
+.img-modal__figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-modal__figure img {
+    display: block;
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    border: 2px solid #b08d57;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 18px rgba(176, 141, 87, 0.22);
+    animation: heroFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.img-modal__caption {
+    margin-top: 0.9rem;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    max-width: 600px;
+}
+
+.img-modal__close {
+    position: absolute;
+    top: -0.75rem;
+    right: -0.75rem;
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+    color: var(--bg-primary);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+
+.img-modal__close:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 480px) {
+    .img-modal {
+        padding: 0.75rem;
+    }
+
+    .img-modal__close {
+        top: -0.35rem;
+        right: -0.35rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+    }
+}
+
 /* =================================================================
    RESPONSIVE
    ================================================================= */
@@ -486,7 +628,7 @@
 
 @media (max-width: 768px) {
     .menu-hero {
-        min-height: 45vh;
+        min-height: 35vh;
         background-attachment: scroll;
     }
 
@@ -497,11 +639,6 @@
     .menu-section__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
-    }
-
-    .menu-section__grid--beverages {
-        grid-template-columns: 1fr;
-        max-width: 500px;
     }
 
     .menu-filters {

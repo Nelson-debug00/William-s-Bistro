@@ -18,7 +18,7 @@
 
     /* Contar platos por categoría y actualizar los badges de los filtros */
     function countDishesByCategory() {
-        const counts = { all: 0, desayunos: 0, entradas: 0, almuerzos: 0, comida_china: 0, comida_rapida: 0, jugos: 0, postres: 0 };
+        const counts = { all: 0, desayunos: 0, entradas: 0, almuerzos: 0, comida_china: 0, comida_rapida: 0, jugos: 0 };
         SUBCATS.forEach(function (sub) { counts[sub] = 0; });
         allDishes.forEach(function (dish) {
             const cat = dish.getAttribute('data-category');
@@ -221,7 +221,84 @@
         animateDishes();
     }
 
-    /* ---------- 4. Initialize Filter Counts ---------- */
+    /* ---------- 5. Initialization ---------- */
     updateFilterCounts();
+
+    /* ---------- 6. Image Modal (vista grande) ---------- */
+    const imgModal = document.getElementById('imgModal');
+    const imgModalImg = document.getElementById('imgModalImg');
+    const imgModalCaption = document.getElementById('imgModalCaption');
+    const imgModalClose = document.getElementById('imgModalClose');
+
+    function openImgModal(imgEl) {
+        if (!imgModal || !imgModalImg) return;
+        imgModalImg.src = imgEl.src;
+        imgModalImg.alt = imgEl.alt;
+        if (imgModalCaption) {
+            imgModalCaption.textContent = imgEl.alt;
+        }
+        imgModal.classList.add('active');
+        imgModal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('modal-open');
+    }
+
+    function closeImgModal() {
+        if (!imgModal) return;
+        imgModal.classList.remove('active');
+        imgModal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('modal-open');
+    }
+
+    document.querySelectorAll('.dish__image').forEach(function (wrapper) {
+        wrapper.addEventListener('click', function (e) {
+            const img = wrapper.querySelector('img');
+            if (img) openImgModal(img);
+        });
+    });
+
+    if (imgModalClose) {
+        imgModalClose.addEventListener('click', closeImgModal);
+    }
+    if (imgModal) {
+        imgModal.addEventListener('click', function (e) {
+            if (e.target === imgModal) closeImgModal();
+        });
+    }
+
+    /* ---------- 7. Menú PDF Modal ---------- */
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfMenuBtn = document.getElementById('pdfMenuBtn');
+
+    function openPdfModal() {
+        if (!pdfModal) return;
+        pdfModal.classList.add('active');
+        pdfModal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('modal-open');
+    }
+
+    function closePdfModal() {
+        if (!pdfModal) return;
+        pdfModal.classList.remove('active');
+        pdfModal.setAttribute('aria-hidden', 'true');
+        document.documentElement.classList.remove('modal-open');
+    }
+
+    if (pdfMenuBtn) {
+        pdfMenuBtn.addEventListener('click', openPdfModal);
+    }
+    if (pdfModal) {
+        pdfModal.addEventListener('click', function (e) {
+            if (e.target === pdfModal) closePdfModal();
+        });
+    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            if (imgModal && imgModal.classList.contains('active')) {
+                closeImgModal();
+            } else if (pdfModal && pdfModal.classList.contains('active')) {
+                closePdfModal();
+            }
+        }
+    });
 
 })();
