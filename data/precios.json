@@ -8,6 +8,8 @@
   },
   "items": [
     { "id": "Alitas_BBQ", "nombre": "Alitas BBQ", "precio_usd": 10.00, "categoria": "entradas" },
+    { "id": "Ensalada_Cesar", "nombre": "Ensalada César con Pollo", "precio_usd": 11.00, "categoria": "entradas" },
+    { "id": "Carpaccio", "nombre": "Carpaccio de Calabacín", "precio_usd": 7.50, "categoria": "entradas" },
     { "id": "Pasta_Carbonara_con_Camarones", "nombre": "Pasta Carbonara con Camarones", "precio_usd": 11.00, "categoria": "almuerzos" },
     { "id": "Bistro_Special_Burger", "nombre": "Bistro Special Burger", "precio_usd": 10.00, "categoria": "almuerzos" },
     { "id": "Crispy_Chicken_Combo", "nombre": "Crispy Chicken Combo", "precio_usd": 10.50, "categoria": "almuerzos" },
