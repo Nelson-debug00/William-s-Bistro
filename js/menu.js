@@ -149,9 +149,16 @@
                     item.classList.add('active');
                 }
             }
-            if (dropdown && subcategories.indexOf(category) !== -1) {
+            // Activar/desactivar botón del dropdown
+            if (dropdown) {
                 var dBtn = dropdown.querySelector('.menu-filters__btn');
-                if (dBtn) dBtn.classList.add('active');
+                if (dBtn) {
+                    if (category === 'almuerzos' || subcategories.indexOf(category) !== -1) {
+                        dBtn.classList.add('active');
+                    } else {
+                        dBtn.classList.remove('active');
+                    }
+                }
             }
 
             // Cerrar dropdown si se eligió subcategoría
@@ -187,6 +194,7 @@
             var dropdownBtn = dropdown.querySelector('.menu-filters__btn');
             dropdownBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
+                applyFilter('almuerzos');
                 dropdown.classList.toggle('is-open');
             });
 
