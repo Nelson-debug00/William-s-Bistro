@@ -17,7 +17,6 @@
     { "id": "Parrillada_Criolla_Mixto", "nombre": "Pasta Marinera al Pesto y Tomate", "precio_usd": 13.00, "categoria": "almuerzos" },
     { "id": "Milanesa_Suprema_Gratinada", "nombre": "Cazuela de Mariscos al Ajillo", "precio_usd": 12.00, "categoria": "almuerzos" },
     { "id": "Salteado_Oriental", "nombre": "Milanesa Suprema Gratinada", "precio_usd": 13.50, "categoria": "almuerzos" },
-    { "id": "Pasta_Marinera_Pesto", "nombre": "Salteado Oriental de Pollo / Cerdo y Vegetales", "precio_usd": 11.00, "categoria": "almuerzos" },
     { "id": "Arepa_Con_Todo", "nombre": "Plato Criollo", "precio_usd": 8.00, "categoria": "almuerzos" },
     { "id": "Pasta_Bistro", "nombre": "Linguine al Pesto con Pollo", "precio_usd": 10.00, "categoria": "almuerzos" },
     { "id": "Pasta_Con_Pollo", "nombre": "Linguine en Salsa Rosada", "precio_usd": 10.00, "categoria": "almuerzos" },
@@ -25,7 +24,6 @@
     { "id": "Arepa_Carne_Asada_Queso_Telita", "nombre": "Dúo de Arepas de Solomo & Salsas de la Casa", "precio_usd": 9.50, "categoria": "desayunos" },
     { "id": "Duo_Arepas_Solomo", "nombre": "Arepa de Carne Asada y Queso Telita", "precio_usd": 6.50, "categoria": "desayunos" },
     { "id": "Empanadas_Criollas", "nombre": "Pastelitos Criollos Especiales", "precio_usd": 5.00, "categoria": "desayunos" },
-    { "id": "Tostadas_Carne_Molida", "nombre": "Tostadas de Carne Molida & Queso", "precio_usd": 7.00, "categoria": "desayunos" },
     { "id": "Sandwich_Desayuno", "nombre": "Sándwich de Desayuno", "precio_usd": 6.00, "categoria": "desayunos" },
     { "id": "Pollo_Canasta", "nombre": "Pollo Canasta", "precio_usd": 17.00, "categoria": "almuerzos" },
     { "id": "Copa_Mousse_Chocolate", "nombre": "Copa Mousse de Chocolate & Cream", "precio_usd": 5.50, "categoria": "postres" },
@@ -38,7 +36,6 @@
     { "id": "jugo_mixto", "nombre": "Jugo Mixto", "precio_usd": 4.00, "categoria": "jugos" },
     { "id": "cafe_americano", "nombre": "Café Americano", "precio_usd": 1.50, "categoria": "jugos" },
     { "id": "Mocachino", "nombre": "Mocachino", "precio_usd": 3.00, "categoria": "jugos" },
-    { "id": "Arroz_Chino", "nombre": "Arroz Chino", "precio_usd": 10.00, "categoria": "comida_china" },
-    { "id": "Pasta_Carbonara_con_Camarones", "nombre": "Pasta Carbonara con Camarones", "precio_usd": 11.00, "categoria": "almuerzos" }
+    { "id": "Arroz_Chino", "nombre": "Arroz Chino", "precio_usd": 10.00, "categoria": "comida_china" }
   ]
 }

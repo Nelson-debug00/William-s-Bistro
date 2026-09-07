@@ -20,6 +20,7 @@
     function countDishesByCategory() {
         const counts = { all: 0, desayunos: 0, entradas: 0, almuerzos: 0, comida_china: 0, comida_rapida: 0, jugos: 0 };
         SUBCATS.forEach(function (sub) { counts[sub] = 0; });
+        const mainCategories = ['desayunos', 'entradas', 'almuerzos', 'comida_china', 'comida_rapida', 'jugos'];
         allDishes.forEach(function (dish) {
             const cat = dish.getAttribute('data-category');
             const sub = dish.getAttribute('data-subcategory');
@@ -27,7 +28,7 @@
                 counts[cat] += 1;
                 counts.all += 1;
             }
-            if (sub && counts.hasOwnProperty(sub)) {
+            if (sub && counts.hasOwnProperty(sub) && !mainCategories.includes(sub)) {
                 counts[sub] += 1;
             }
         });
