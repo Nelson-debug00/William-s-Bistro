@@ -52,7 +52,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="William's Bistro | Una experiencia gastronómica de alto nivel en Maturín."
+      content="William's Bistro | Una experiencia gastronómica de alto nivel en Matur��n."
     />
     <meta
       name="twitter:description"
@@ -254,6 +254,28 @@
             </p>
           </div>
         </article>
+        <article class="dish" data-category="desayunos" data-dish="Tostadas_Carne_Molida">
+          <div class="dish__image">
+            <img
+              src="./assets/tostadas_ternera.jpg"
+              alt="Tostadas de Carne Molida y Queso"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Tostadas de Carne Molida y Queso</h3>
+              <span class="dish__price" data-usd="7.00">$7.00</span>
+            </div>
+            <p class="dish__desc">
+              Crocantes tortillas de maíz cubiertas con jugosa carne molida
+              sazonada, queso fundido, un toque de palta/aguacate y una
+              generosa lluvia de queso blanco rallado.
+            </p>
+          </div>
+        </article>
         <article class="dish" data-category="desayunos" data-dish="Sandwich_Desayuno">
           <div class="dish__image">
             <img
@@ -287,7 +309,7 @@
         </p>
       </div>
       <div class="menu-section__grid">
-        <article class="dish" data-category="entradas" data-dish="Ensalada_Cesar">
+        <article class="dish" data-category="entradas" data-dish="Ensalada_Cesar" data-subcategory="entradas">
           <div class="dish__image">
             <img
               src="./assets/ensalada_cesar.jpeg"
@@ -305,7 +327,7 @@
             <p class="dish__desc">Jugosa pechuga de pollo al grill, tocineta crujiente y pernil de jamón selecto, sobre una base fresca de lechuga. Coronada con crutones dorados, queso parmesano y nuestro cremoso aderezo César artesanal.</p>
           </div>
         </article>
-        <article class="dish" data-category="entradas" data-dish="Carpaccio">
+        <article class="dish" data-category="entradas" data-dish="Carpaccio" data-subcategory="entradas">
           <div class="dish__image">
             <img
               src="./assets/carpaccio.jpeg"
@@ -323,11 +345,7 @@
             <p class="dish__desc">Delicadas rodajas de calabacín y tomate, servidas con rúcula fresca, jugosos tomates cherry y abundante queso parmesano rallado. Una entrada ligera y llena de sabor.</p>
           </div>
         </article>
-        <article
-          class="dish"
-          data-category="entradas"
-          data-dish="Alitas_BBQ"
-        >
+        <article class="dish" data-category="entradas" data-dish="Alitas_BBQ">
           <div class="dish__image">
             <img
               src="./assets/plato5.jpg"
@@ -366,12 +384,12 @@
           class="dish"
           data-category="almuerzos"
           data-subcategory="pastas"
-          data-dish="Pasta_con_Camarones_en_Salsa_Blanca"
+          data-dish="Pasta_Carbonara_con_Camarones"
         >
           <div class="dish__image">
             <img
-              src="./assets/pasta_con_camarones.jpeg"
-              alt="Pasta con Camarones en Salsa Blanca"
+              src="./assets/pasta1.jpg"
+              alt="Pasta Carbonara con Camarones"
               loading="lazy"
               width="300"
               height="200"
@@ -379,8 +397,8 @@
           </div>
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Pasta con Camarones en Salsa Blanca</h3>
-              <span class="dish__price" data-usd="15.00">$15.00</span>
+              <h3 class="dish__name">Pasta Carbonara con Camarones</h3>
+              <span class="dish__price" data-usd="11.00">$11.00</span>
             </div>
             <p class="dish__desc">
               Pasta en una cremosa salsa de la casa, acompañada de jugosos
@@ -482,7 +500,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="almuerzos" data-dish="Pasta_Marinera_Pesto">
+        <article class="dish" data-category="almuerzos" data-subcategory="pastas" data-dish="Pasta_Marinera_Pesto">
           <div class="dish__image">
             <img
               src="./assets/carnesalteada.jpg"
@@ -500,6 +518,34 @@
             <p class="dish__desc">
               Tiras jugosas de proteína salteadas al wok a alta temperatura con
               cebollas, pimentón verde y salsa de soya reducida.
+            </p>
+          </div>
+        </article>
+
+        <article
+          class="dish"
+          data-category="almuerzos"
+          data-dish="Bistro_Special_Burger"
+        >
+          <div class="dish__image">
+            <img
+              src="./assets/hamburguesa1.jpg"
+              alt="Bistro Special Burger"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Bistro Special Burger</h3>
+              <span class="dish__price" data-usd="10.00">$10.00</span>
+            </div>
+            <p class="dish__desc">
+              Jugosa carne a la parrilla servida en pan brioche de ajonjolí, con
+              huevo frito, tocineta crujiente, doble queso cheddar melted y
+              salsa especial. Acompañada de una abundante porción de papas
+              fritas bañadas en cátsup.
             </p>
           </div>
         </article>
@@ -607,7 +653,36 @@
             <p class="dish__desc">Concentrado asopado de mariscos y trocitos de carne en su jugo con sofrito criollo, servido caliente con tostones crujientes y pan con ajo tostado.</p>
           </div>
         </article>
+        <article class="dish" data-category="almuerzos" data-subcategory="pastas" data-dish="Pasta_Con_Camarones">
+          <div class="dish__image">
+            <img
+              src="./assets/pasta_con_camarones.jpeg"
+              alt="Pasta con Camarones"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Pasta con Camarones en Salsa Blanca</h3>
+              <span class="dish__price" data-usd="15.00">$15.00</span>
+            </div>
+            <p class="dish__desc">Camarones salteados al vino blanco, servidos sobre una cama de pasta en cremosa salsa de la casa con maíz dulce. Acompañada con crocante pan al ajillo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <!-- ======================= SECCIÓN PLATOS FUERTES ======================= -->
+    <section class="menu-section" id="almuerzos" data-category="almuerzos">
+      <div class="menu-section__header">
+        <h2 class="menu-section__title">Platos Fuertes</h2>
+        <p class="menu-section__desc">
+          Platos fuertes preparados al momento
+        </p>
+      </div>
+      <div class="menu-section__grid">
         <article class="dish" data-category="almuerzos" data-subcategory="pollo_broaster" data-dish="Pollo_Canasta">
           <div class="dish__image">
             <img
@@ -620,12 +695,11 @@
           </div>
           <div class="dish__body">
             <div class="dish__head">
-              <h3 class="dish__name">Pollo Canasta</h3>
+              <h3 class="dish__name">Pollo a la Canasta</h3>
               <span class="dish__price" data-usd="17.00">$17.00</span>
             </div>
             <p class="dish__desc">
-              Jugoso pollo broaster crujiente con su canasta de acompañantes,
-              ideal para compartir.
+              Disfruta de nuestros jugosos bocados de pechuga de pollo empanizados, acompañados de una generosa ración de papas fritas bien calientes y crujientes, listos para sumergir en nuestras salsas de la casa.
             </p>
           </div>
         </article>
@@ -641,7 +715,7 @@
         </p>
       </div>
       <div class="menu-section__grid">
-        <article class="dish" data-category="comida_china" data-dish="Arroz_Chino">
+        <article class="dish" data-category="comida_china" data-dish="Arroz_Chino" data-subcategory="comida_china">
           <div class="dish__image">
             <img
               src="./assets/arroz_chino.jpeg"
@@ -770,7 +844,6 @@
             <p class="dish__desc">Base de brownie meloso cubierto con fudge de chocolate caliente, trozos crujientes de galleta Oreo y galleta entera superior.</p>
           </div>
         </article>
-
         <article class="dish" data-category="jugos" data-dish="Mocachino">
           <div class="dish__image">
             <img

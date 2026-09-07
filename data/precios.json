@@ -13,7 +13,7 @@
     { "id": "Pasta_con_Camarones_en_Salsa_Blanca", "nombre": "Pasta con Camarones en Salsa Blanca", "precio_usd": 15.00, "categoria": "almuerzos" },
     { "id": "Bistro_Special_Burger", "nombre": "Burguer Cheese", "precio_usd": 9.00, "categoria": "comida_rapida" },
     { "id": "Crispy_Chicken_Combo", "nombre": "Crispy Chicken Combo", "precio_usd": 10.50, "categoria": "almuerzos" },
-{ "id": "Cazuela_Mariscos_Ajillo", "nombre": "Parrillada Criolla El Mixto", "precio_usd": 14.00, "categoria": "almuerzos" },
+    { "id": "Cazuela_Mariscos_Ajillo", "nombre": "Parrillada Criolla El Mixto", "precio_usd": 14.00, "categoria": "almuerzos" },
     { "id": "Parrillada_Criolla_Mixto", "nombre": "Pasta Marinera al Pesto y Tomate", "precio_usd": 13.00, "categoria": "almuerzos" },
     { "id": "Milanesa_Suprema_Gratinada", "nombre": "Cazuela de Mariscos al Ajillo", "precio_usd": 12.00, "categoria": "almuerzos" },
     { "id": "Salteado_Oriental", "nombre": "Milanesa Suprema Gratinada", "precio_usd": 13.50, "categoria": "almuerzos" },
@@ -37,6 +37,8 @@
     { "id": "jugo_fresa", "nombre": "Jugo de Fresa", "precio_usd": 3.50, "categoria": "jugos" },
     { "id": "jugo_mixto", "nombre": "Jugo Mixto", "precio_usd": 4.00, "categoria": "jugos" },
     { "id": "cafe_americano", "nombre": "Café Americano", "precio_usd": 1.50, "categoria": "jugos" },
-    { "id": "Mocachino", "nombre": "Mocachino", "precio_usd": 3.00, "categoria": "jugos" }
+    { "id": "Mocachino", "nombre": "Mocachino", "precio_usd": 3.00, "categoria": "jugos" },
+    { "id": "Arroz_Chino", "nombre": "Arroz Chino", "precio_usd": 10.00, "categoria": "comida_china" },
+    { "id": "Pasta_Carbonara_con_Camarones", "nombre": "Pasta Carbonara con Camarones", "precio_usd": 11.00, "categoria": "almuerzos" }
   ]
 }
