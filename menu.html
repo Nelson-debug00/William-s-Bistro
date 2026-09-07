@@ -276,6 +276,27 @@
             </p>
           </div>
         </article>
+        <article class="dish" data-category="desayunos" data-dish="Sandwich_Desayuno">
+          <div class="dish__image">
+            <img
+              src="./assets/Sandwich.jpg"
+              alt="Sándwich de Desayuno"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Sándwich de Desayuno</h3>
+              <span class="dish__price" data-usd="6.00">$6.00</span>
+            </div>
+            <p class="dish__desc">
+              Sándwich fresco preparado al momento, perfecto para comenzar tu
+              día con energía y el mejor sabor.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -288,6 +309,33 @@
         </p>
       </div>
       <div class="menu-section__grid">
+        <article
+          class="dish"
+          data-category="entradas"
+          data-dish="Alitas_BBQ"
+        >
+          <div class="dish__image">
+            <img
+              src="./assets/plato5.jpg"
+              alt="Alitas BBQ"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Alitas BBQ</h3>
+              <span class="dish__price" data-usd="10.00">$10.00</span>
+            </div>
+            <p class="dish__desc">
+              Jugosas y crujientes alitas de pollo bañadas en nuestra salsa
+              especial BBQ y espolvoreadas con semillas de ajonjolí. Acompañadas
+              de una generosa porción de papas fritas, salsa extra para untar y
+              una bebida bien fría para refrescar.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -303,34 +351,7 @@
         <article
           class="dish"
           data-category="almuerzos"
-          data-dish="Alitas_BBQ"
-        >
-          <div class="dish__image">
-            <img
-              src="./assets/plato5.jpg"
-              alt="Alitas BBQ"
-              loading="lazy"
-              width="300"
-              height="200"
-            />
-          </div>
-          <div class="dish__body">
-            <div class="dish__head">
-              <h3 class="dish__name">Alitas BBQ</h3>
-              <span class="dish__price" data-usd="8.50">$8.50</span>
-            </div>
-            <p class="dish__desc">
-              Jugosas y crujientes alitas de pollo bañadas en nuestra salsa
-              especial BBQ y espolvoreadas con semillas de ajonjolí. Acompañadas
-              de una generosa porción de papas fritas, salsa extra para untar y
-              una bebida bien fría para refrescar.
-            </p>
-          </div>
-        </article>
-
-        <article
-          class="dish"
-          data-category="almuerzos"
+          data-subcategory="pastas"
           data-dish="Pasta_Carbonara_con_Camarones"
         >
           <div class="dish__image">
@@ -355,7 +376,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="almuerzos" data-dish="Cazuela_Mariscos_Ajillo">
+        <article class="dish" data-category="almuerzos" data-subcategory="pollo_broaster" data-dish="Cazuela_Mariscos_Ajillo">
           <div class="dish__image">
             <img
               src="./assets/almuerzo1.jpg"
@@ -378,7 +399,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="almuerzos" data-dish="Parrillada_Criolla_Mixto">
+        <article class="dish" data-category="almuerzos" data-subcategory="pastas" data-dish="Parrillada_Criolla_Mixto">
           <div class="dish__image">
             <img
               src="./assets/almuerzo2.jpg"
@@ -500,6 +521,7 @@
         <article
           class="dish"
           data-category="almuerzos"
+          data-subcategory="pollo_broaster"
           data-dish="Crispy_Chicken_Combo"
         >
           <div class="dish__image">
@@ -543,7 +565,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="almuerzos" data-dish="Pasta_Bistro">
+        <article class="dish" data-category="almuerzos" data-subcategory="pastas" data-dish="Pasta_Bistro">
           <div class="dish__image">
             <img
               src="./assets/pasta pesto.jpg"
@@ -562,7 +584,7 @@
           </div>
         </article>
 
-        <article class="dish" data-category="almuerzos" data-dish="Pasta_Con_Pollo">
+        <article class="dish" data-category="almuerzos" data-subcategory="pastas" data-dish="Pasta_Con_Pollo">
           <div class="dish__image">
             <img
               src="./assets/pastapollo.jpg"
@@ -597,6 +619,27 @@
               <span class="dish__price">$15.50</span>
             </div>
             <p class="dish__desc">Concentrado asopado de mariscos y trocitos de carne en su jugo con sofrito criollo, servido caliente con tostones crujientes y pan con ajo tostado.</p>
+          </div>
+        </article>
+
+        <article class="dish" data-category="almuerzos" data-subcategory="pollo_broaster" data-dish="Pollo_Canasta">
+          <div class="dish__image">
+            <img
+              src="./assets/pollo canasta.jpg"
+              alt="Pollo Canasta"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Pollo a la Canasta</h3>
+              <span class="dish__price" data-usd="17.00">$17.00</span>
+            </div>
+            <p class="dish__desc">
+              Disfruta de nuestros jugosos bocados de pechuga de pollo empanizados, acompañados de una generosa ración de papas fritas bien calientes y crujientes, listos para sumergir en nuestras salsas de la casa.
+            </p>
           </div>
         </article>
       </div>
@@ -671,7 +714,7 @@
           <div class="dish__body">
             <div class="dish__head">
               <h3 class="dish__name">Brownie de Chocolate</h3>
-              <span class="dish__price" data-usd="3.00">$3.00</span>
+              <span class="dish__price" data-usd="4.00">$4.00</span>
             </div>
             <p class="dish__desc">Bizcocho denso y húmedo de chocolate oscuro cargado con chispas de chocolate fundidas, servido tibio.</p>
           </div>
@@ -690,9 +733,31 @@
           <div class="dish__body">
             <div class="dish__head">
               <h3 class="dish__name">Brownie con Oreo</h3>
-              <span class="dish__price" data-usd="6.00">$6.00</span>
+              <span class="dish__price" data-usd="7.00">$7.00</span>
             </div>
             <p class="dish__desc">Base de brownie meloso cubierto con fudge de chocolate caliente, trozos crujientes de galleta Oreo y galleta entera superior.</p>
+          </div>
+        </article>
+
+        <article class="dish" data-category="jugos" data-dish="Mocachino">
+          <div class="dish__image">
+            <img
+              src="./assets/Mocacchino.jpg"
+              alt="Mocachino"
+              loading="lazy"
+              width="300"
+              height="200"
+            />
+          </div>
+          <div class="dish__body">
+            <div class="dish__head">
+              <h3 class="dish__name">Moccaccino</h3>
+              <span class="dish__price" data-usd="3.00">$3.00</span>
+            </div>
+            <p class="dish__desc">
+              Deliciosa mezcla de espresso, leche vaporizada y chocolate,
+              coronada con crema batida y un toque de cacao.
+            </p>
           </div>
         </article>
       </div>
